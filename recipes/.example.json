@@ -1,0 +1,24 @@
+{
+    "id": "recipe-id",
+    "name": "Recipe Name",
+    "description": "Recipe description.",
+    "ingredients": [
+        {
+            "name": "Ingredient 1",
+            "quantity": 0,
+            "unit": "unit"
+        },
+        {
+            "name": "Ingredient 2",
+            "quantity": 0,
+            "unit": "unit"
+        }
+    ],
+    "steps": [
+        "Step 1.",
+        "Step 2."
+    ],
+    "notes": [
+        "Note."
+    ]
+}

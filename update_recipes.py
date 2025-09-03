@@ -15,7 +15,7 @@ def update_recipe_list():
         recipe_files = [
             f"recipes/{file}"
             for file in os.listdir(recipes_dir)
-            if file.endswith('.json')
+            if file.endswith('.json') and not file.startswith('.')
         ]
     except FileNotFoundError:
         print(f"Error: The directory '{recipes_dir}' was not found.")
