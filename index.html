@@ -57,6 +57,25 @@
         ></h2>
         <p id="recipe-detail-description" class="text-gray-600 mb-6"></p>
 
+        <!-- Servings control section -->
+        <div class="mb-6 p-4 bg-gray-50 rounded-lg">
+          <div class="flex items-center space-x-4">
+            <label
+              for="servings-input"
+              class="text-lg font-semibold text-gray-700"
+              >份數：</label
+            >
+            <input
+              id="servings-input"
+              type="number"
+              min="0.1"
+              step="0.1"
+              class="appearance-none block w-20 px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+            />
+            <span id="servings-unit" class="text-gray-600"></span>
+          </div>
+        </div>
+
         <!-- Ingredients and scaling UI -->
         <div class="mb-8">
           <h3 class="text-2xl font-bold text-gray-900 mb-4">材料</h3>

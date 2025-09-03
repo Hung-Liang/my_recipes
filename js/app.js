@@ -10,6 +10,8 @@
     const recipeDetailNotes = document.getElementById("recipe-detail-notes");
     const recipeDetailNotesContainer = document.getElementById("recipe-detail-notes-container");
     const backButton = document.getElementById("back-button");
+    const servingsInput = document.getElementById("servings-input");
+    const servingsUnit = document.getElementById("servings-unit");
 
     // Store original quantities for scaling
     let currentRecipe = null;
@@ -24,7 +26,7 @@
     async function fetchRecipeData() {
         const fetchedRecipes = [];
         try {
-            const response = await fetch('asset/recipes.json');
+            const response = await fetch("asset/recipes.json");
             if (!response.ok) {
                 throw new Error(`Failed to fetch recipes.json: ${response.statusText}`);
             }
@@ -34,7 +36,9 @@
                 try {
                     const recipeResponse = await fetch(fileName);
                     if (!recipeResponse.ok) {
-                        throw new Error(`Failed to fetch ${fileName}: ${recipeResponse.statusText}`);
+                        throw new Error(
+                            `Failed to fetch ${fileName}: ${recipeResponse.statusText}`
+                        );
                     }
                     const recipe = await recipeResponse.json();
                     // Dynamically calculate the ratio based on the first ingredient
@@ -85,30 +89,23 @@
         recipeDetailName.textContent = recipe.name;
         recipeDetailDescription.textContent = recipe.description;
 
-        // Render ingredients with scaling functionality
-        recipeDetailIngredients.innerHTML = "";
-        recipe.ingredients.forEach((ingredient) => {
-            const listItem = document.createElement("li");
-            listItem.className = "flex items-center space-x-2";
-            listItem.innerHTML = `
-                <span class="text-gray-700 w-1/2">${ingredient.name}:</span>
-                <input
-                    type="number"
-                    value="${ingredient.quantity}"
-                    data-original-quantity="${ingredient.quantity}"
-                    data-ratio="${ingredient.ratio}"
-                    class="ingredient-input appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                >
-                <span class="text-gray-500">${ingredient.unit}</span>
-            `;
-            recipeDetailIngredients.appendChild(listItem);
-        });
+        // Set up servings display and control
+        if (recipe.servings) {
+            servingsInput.value = recipe.servings.quantity;
+            servingsUnit.textContent = recipe.servings.unit;
+        } else {
+            servingsInput.value = 1;
+            servingsUnit.textContent = "份";
+        }
 
-        // Attach event listeners to all ingredient inputs for scaling
-        const ingredientInputs = document.querySelectorAll(".ingredient-input");
-        ingredientInputs.forEach((input) => {
-            input.addEventListener("input", handleIngredientChange);
-        });
+        // Remove any existing event listeners to avoid duplicates
+        servingsInput.removeEventListener("input", handleServingsChange);
+
+        // Render ingredients with scaling functionality
+        renderIngredients();
+
+        // Attach event listener to servings input for scaling
+        servingsInput.addEventListener("input", handleServingsChange);
 
         // Render steps
         recipeDetailSteps.innerHTML = "";
@@ -130,6 +127,45 @@
         } else {
             recipeDetailNotesContainer.classList.add("hidden");
         }
+    }
+
+    // Function to render ingredients based on current servings
+    function renderIngredients() {
+        if (!currentRecipe) return;
+
+        const currentServings = parseFloat(servingsInput.value);
+        const originalServings = currentRecipe.servings ? currentRecipe.servings.quantity : 1;
+        const scalingFactor = currentServings / originalServings;
+
+        recipeDetailIngredients.innerHTML = "";
+        currentRecipe.ingredients.forEach((ingredient) => {
+            const scaledQuantity = (ingredient.quantity * scalingFactor).toFixed(2);
+            const listItem = document.createElement("li");
+            listItem.className = "flex items-center space-x-2";
+            listItem.innerHTML = `
+                <span class="text-gray-700 w-1/2">${ingredient.name}:</span>
+                <input
+                    type="number"
+                    value="${scaledQuantity}"
+                    data-original-quantity="${ingredient.quantity}"
+                    data-ratio="${ingredient.ratio}"
+                    class="ingredient-input appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                >
+                <span class="text-gray-500">${ingredient.unit}</span>
+            `;
+            recipeDetailIngredients.appendChild(listItem);
+        });
+
+        // Attach event listeners to all ingredient inputs for scaling
+        const ingredientInputs = document.querySelectorAll(".ingredient-input");
+        ingredientInputs.forEach((input) => {
+            input.addEventListener("input", handleIngredientChange);
+        });
+    }
+
+    // Function to handle servings change and update all ingredients
+    function handleServingsChange() {
+        renderIngredients();
     }
 
     // Function to handle ingredient quantity changes and scale other ingredients

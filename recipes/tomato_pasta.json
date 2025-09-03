@@ -2,6 +2,10 @@
     "id": "recipe-1",
     "name": "美味番茄義大利麵",
     "description": "經典的番茄義大利麵，簡單又美味。",
+    "servings": {
+        "quantity": 1,
+        "unit": "人份"
+    },
     "ingredients": [
         {
             "name": "義大利麵",

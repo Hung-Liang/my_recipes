@@ -2,6 +2,10 @@
     "id": "unique-recipe-id",
     "name": "自製是拉差辣醬",
     "description": "百分百還原市售是拉差辣醬",
+    "servings": {
+        "quantity": 320,
+        "unit": "克"
+    },
     "ingredients": [
         {
             "name": "辣椒",
