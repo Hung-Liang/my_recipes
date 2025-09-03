@@ -22,33 +22,35 @@
      * This function is an example and might need adjustments depending on your server setup.
      */
     async function fetchRecipeData() {
-        const fileNames = [
-            "recipes/braised_chicken.json",
-            "recipes/mapo_tofu.json",
-            "recipes/self_made_racha.json",
-            "recipes/spice_chicken_thigh.json",
-            "recipes/tomato_pasta.json",
-        ];
         const fetchedRecipes = [];
-
-        for (const fileName of fileNames) {
-            try {
-                const response = await fetch(fileName);
-                if (!response.ok) {
-                    throw new Error(`Failed to fetch ${fileName}: ${response.statusText}`);
-                }
-                const recipe = await response.json();
-                // Dynamically calculate the ratio based on the first ingredient
-                if (recipe.ingredients.length > 0 && recipe.ingredients[0].quantity > 0) {
-                    const baseQuantity = recipe.ingredients[0].quantity;
-                    recipe.ingredients.forEach((ingredient) => {
-                        ingredient.ratio = ingredient.quantity / baseQuantity;
-                    });
-                }
-                fetchedRecipes.push(recipe);
-            } catch (error) {
-                console.error(error);
+        try {
+            const response = await fetch('asset/recipes.json');
+            if (!response.ok) {
+                throw new Error(`Failed to fetch recipes.json: ${response.statusText}`);
             }
+            const fileNames = await response.json();
+
+            for (const fileName of fileNames) {
+                try {
+                    const recipeResponse = await fetch(fileName);
+                    if (!recipeResponse.ok) {
+                        throw new Error(`Failed to fetch ${fileName}: ${recipeResponse.statusText}`);
+                    }
+                    const recipe = await recipeResponse.json();
+                    // Dynamically calculate the ratio based on the first ingredient
+                    if (recipe.ingredients.length > 0 && recipe.ingredients[0].quantity > 0) {
+                        const baseQuantity = recipe.ingredients[0].quantity;
+                        recipe.ingredients.forEach((ingredient) => {
+                            ingredient.ratio = ingredient.quantity / baseQuantity;
+                        });
+                    }
+                    fetchedRecipes.push(recipe);
+                } catch (error) {
+                    console.error(error);
+                }
+            }
+        } catch (error) {
+            console.error(error);
         }
         return fetchedRecipes;
     }
