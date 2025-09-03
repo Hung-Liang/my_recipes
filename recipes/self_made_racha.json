@@ -1,0 +1,60 @@
+{
+    "id": "unique-recipe-id",
+    "name": "自製是拉差辣醬",
+    "description": "百分百還原市售是拉差辣醬",
+    "ingredients": [
+        {
+            "name": "辣椒",
+            "quantity": 8,
+            "unit": "根"
+        },
+        {
+            "name": "蒜",
+            "quantity": 16,
+            "unit": "顆"
+        },
+        {
+            "name": "薑",
+            "quantity": 8,
+            "unit": "片"
+        },
+        {
+            "name": "白醋",
+            "quantity": 60,
+            "unit": "g"
+        },
+        {
+            "name": "檸檬汁",
+            "quantity": 180,
+            "unit": "g"
+        },
+        {
+            "name": "高湯",
+            "quantity": 160,
+            "unit": "g"
+        },
+        {
+            "name": "蜂蜜",
+            "quantity": 40,
+            "unit": "g"
+        },
+        {
+            "name": "鹽",
+            "quantity": 2,
+            "unit": "匙"
+        },
+        {
+            "name": "味精",
+            "quantity": 2,
+            "unit": "匙"
+        }
+    ],
+    "steps": [
+        "辣椒、薑、蒜盡量剁或磨碎，越碎越好",
+        "全部食材加入攪拌均勻"
+    ],
+    "notes": [
+        "蜂蜜可以用普通糖替代，高湯也可用任意風味液體替代",
+        "此比例等同於320g是拉差辣醬，也可混入同比例辣醬用做增量"
+    ]
+}

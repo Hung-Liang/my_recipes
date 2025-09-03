@@ -22,7 +22,13 @@
      * This function is an example and might need adjustments depending on your server setup.
      */
     async function fetchRecipeData() {
-        const fileNames = ["recipes/braised_chicken.json", "recipes/spice_chicken_thigh.json", "recipes/tomato_pasta.json"];
+        const fileNames = [
+            "recipes/braised_chicken.json",
+            "recipes/mapo_tofu.json",
+            "recipes/self_made_racha.json",
+            "recipes/spice_chicken_thigh.json",
+            "recipes/tomato_pasta.json",
+        ];
         const fetchedRecipes = [];
 
         for (const fileName of fileNames) {
