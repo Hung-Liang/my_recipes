@@ -12,10 +12,15 @@
     const backButton = document.getElementById("back-button");
     const servingsInput = document.getElementById("servings-input");
     const servingsUnit = document.getElementById("servings-unit");
+    const tagsContainer = document.getElementById("tags-container");
+    const selectedTagsSpan = document.getElementById("selected-tags");
+    const clearTagsButton = document.getElementById("clear-tags");
 
     // Store original quantities for scaling
     let currentRecipe = null;
     let recipes = []; // This will hold the fetched recipes
+    let allTags = new Set(); // Store all unique tags
+    let selectedTags = new Set(); // Store currently selected tags
 
     /**
      * Function to fetch JSON files from the /recipes directory.
@@ -48,6 +53,10 @@
                             ingredient.ratio = ingredient.quantity / baseQuantity;
                         });
                     }
+                    // Collect all tags
+                    if (recipe.tags && Array.isArray(recipe.tags)) {
+                        recipe.tags.forEach((tag) => allTags.add(tag));
+                    }
                     fetchedRecipes.push(recipe);
                 } catch (error) {
                     console.error(error);
@@ -59,16 +68,105 @@
         return fetchedRecipes;
     }
 
+    // Function to render all available tags
+    function renderTags() {
+        tagsContainer.innerHTML = "";
+        Array.from(allTags)
+            .sort()
+            .forEach((tag) => {
+                const tagButton = document.createElement("button");
+                tagButton.className = selectedTags.has(tag)
+                    ? "px-3 py-1 text-sm rounded-full border-2 border-blue-500 bg-blue-500 text-white hover:bg-blue-600 transition-colors"
+                    : "px-3 py-1 text-sm rounded-full border-2 border-gray-300 bg-white text-gray-700 hover:border-blue-500 hover:text-blue-500 transition-colors";
+                tagButton.textContent = tag;
+                tagButton.onclick = () => toggleTag(tag);
+                tagsContainer.appendChild(tagButton);
+            });
+        updateSelectedTagsDisplay();
+    }
+
+    // Function to toggle tag selection
+    function toggleTag(tag) {
+        if (selectedTags.has(tag)) {
+            selectedTags.delete(tag);
+        } else {
+            selectedTags.add(tag);
+        }
+        renderTags();
+        renderRecipeList();
+    }
+
+    // Function to update selected tags display
+    function updateSelectedTagsDisplay() {
+        if (selectedTags.size === 0) {
+            selectedTagsSpan.textContent = "無";
+            clearTagsButton.classList.add("hidden");
+        } else {
+            selectedTagsSpan.textContent = Array.from(selectedTags).join(", ");
+            clearTagsButton.classList.remove("hidden");
+        }
+    }
+
+    // Function to clear all selected tags
+    function clearAllTags() {
+        selectedTags.clear();
+        renderTags();
+        renderRecipeList();
+    }
+
+    // Function to filter recipes based on selected tags
+    function getFilteredRecipes() {
+        if (selectedTags.size === 0) {
+            return recipes;
+        }
+        return recipes.filter((recipe) => {
+            if (!recipe.tags || !Array.isArray(recipe.tags)) {
+                return false;
+            }
+            return Array.from(selectedTags).every((selectedTag) =>
+                recipe.tags.includes(selectedTag)
+            );
+        });
+    }
+
     // Function to render the list of recipes
     function renderRecipeList() {
         recipeListContainer.innerHTML = "";
-        recipes.forEach((recipe) => {
+        const filteredRecipes = getFilteredRecipes();
+
+        if (filteredRecipes.length === 0) {
+            const noResultsDiv = document.createElement("div");
+            noResultsDiv.className = "col-span-full text-center py-8";
+            noResultsDiv.innerHTML = `
+                <p class="text-gray-500 text-lg">沒有找到符合條件的食譜</p>
+                <p class="text-gray-400 text-sm mt-2">嘗試調整篩選條件</p>
+            `;
+            recipeListContainer.appendChild(noResultsDiv);
+            return;
+        }
+
+        filteredRecipes.forEach((recipe) => {
             const card = document.createElement("div");
             card.className =
                 "bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 p-6 border border-gray-200 cursor-pointer";
+
+            // Create tags display
+            const tagsHtml =
+                recipe.tags && recipe.tags.length > 0
+                    ? `<div class="flex flex-wrap gap-1 mt-3">
+                     ${recipe.tags
+                         .map(
+                             (tag) =>
+                                 `<span class="px-2 py-1 text-xs rounded-full bg-gray-100 text-gray-600">${tag}</span>`
+                         )
+                         .join("")}
+                   </div>`
+                    : "";
+
             card.innerHTML = `
                 <h2 class="text-2xl font-semibold text-gray-900 mb-2">${recipe.name}</h2>
                 <p class="text-gray-600">${recipe.description}</p>
+                ${tagsHtml}
             `;
             card.onclick = () => showRecipeDetail(recipe.id);
             recipeListContainer.appendChild(card);
@@ -203,9 +301,13 @@
     // Attach event listener to the back button
     backButton.addEventListener("click", showRecipeList);
 
+    // Attach event listener to clear tags button
+    clearTagsButton.addEventListener("click", clearAllTags);
+
     // Initial call to fetch data and render the list when the page loads
     window.onload = async () => {
         recipes = await fetchRecipeData();
+        renderTags();
         renderRecipeList();
     };
 })();

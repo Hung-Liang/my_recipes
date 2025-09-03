@@ -20,6 +20,24 @@
         </p>
       </header>
 
+      <!-- Tags filter section -->
+      <div class="mb-8">
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">標籤篩選</h2>
+        <div id="tags-container" class="flex flex-wrap gap-2 mb-4">
+          <!-- Tags will be injected here by JavaScript -->
+        </div>
+        <div class="text-sm text-gray-600">
+          <span>已選擇標籤：</span>
+          <span id="selected-tags" class="font-medium">無</span>
+          <button
+            id="clear-tags"
+            class="ml-4 text-blue-600 hover:text-blue-800 underline hidden"
+          >
+            清除所有篩選
+          </button>
+        </div>
+      </div>
+
       <!-- Recipe list section -->
       <div
         id="recipe-list-container"
