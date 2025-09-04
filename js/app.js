@@ -46,6 +46,8 @@
                         );
                     }
                     const recipe = await recipeResponse.json();
+                    // Add filename as identifier (remove extension)
+                    recipe.filename = fileName.split("/").pop().replace(".json", "");
                     // Dynamically calculate the ratio based on the first ingredient
                     if (recipe.ingredients.length > 0 && recipe.ingredients[0].quantity > 0) {
                         const baseQuantity = recipe.ingredients[0].quantity;
@@ -168,16 +170,16 @@
                 <p class="text-gray-600">${recipe.description}</p>
                 ${tagsHtml}
             `;
-            card.onclick = () => showRecipeDetail(recipe.id);
+            card.onclick = () => showRecipeDetail(recipe.filename);
             recipeListContainer.appendChild(card);
         });
     }
 
     // Function to display a single recipe's details
-    function showRecipeDetail(recipeId) {
-        const recipe = recipes.find((r) => r.id === recipeId);
+    function showRecipeDetail(filename) {
+        const recipe = recipes.find((r) => r.filename === filename);
         if (!recipe) {
-            console.error("Recipe not found:", recipeId);
+            console.error("Recipe not found:", filename);
             return;
         }
         currentRecipe = recipe; // Store the current recipe for scaling
