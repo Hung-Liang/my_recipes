@@ -18,56 +18,76 @@
 
     // Store original quantities for scaling
     let currentRecipe = null;
-    let recipes = []; // This will hold the fetched recipes
+    let recipes = []; // This will hold the recipe summaries (name, description, tags, filename)
+    let recipeCache = new Map(); // Cache for full recipe data
     let allTags = new Set(); // Store all unique tags
     let selectedTags = new Set(); // Store currently selected tags
 
     /**
-     * Function to fetch JSON files from the /recipes directory.
-     * In a real-world scenario, you might need a server-side script to list files.
-     * Here, we'll manually list the files for demonstration purposes.
-     * This function is an example and might need adjustments depending on your server setup.
+     * Function to fetch recipe summaries from Info.json.
+     * This approach loads all recipe metadata in a single request,
+     * avoiding multiple network calls during initialization.
      */
-    async function fetchRecipeData() {
-        const fetchedRecipes = [];
+    async function fetchRecipeSummaries() {
         try {
-            const response = await fetch("asset/recipes.json");
+            const response = await fetch("asset/Info.json");
             if (!response.ok) {
-                throw new Error(`Failed to fetch recipes.json: ${response.statusText}`);
+                throw new Error(`Failed to fetch Info.json: ${response.statusText}`);
             }
-            const fileNames = await response.json();
-
-            for (const fileName of fileNames) {
-                try {
-                    const recipeResponse = await fetch(fileName);
-                    if (!recipeResponse.ok) {
-                        throw new Error(
-                            `Failed to fetch ${fileName}: ${recipeResponse.statusText}`
-                        );
-                    }
-                    const recipe = await recipeResponse.json();
-                    // Add filename as identifier (remove extension)
-                    recipe.filename = fileName.split("/").pop().replace(".json", "");
-                    // Dynamically calculate the ratio based on the first ingredient
-                    if (recipe.ingredients.length > 0 && recipe.ingredients[0].quantity > 0) {
-                        const baseQuantity = recipe.ingredients[0].quantity;
-                        recipe.ingredients.forEach((ingredient) => {
-                            ingredient.ratio = ingredient.quantity / baseQuantity;
-                        });
-                    }
-                    // Collect all tags
-                    if (recipe.tags && Array.isArray(recipe.tags)) {
-                        recipe.tags.forEach((tag) => allTags.add(tag));
-                    }
-                    fetchedRecipes.push(recipe);
-                } catch (error) {
-                    console.error(error);
-                }
+            const data = await response.json();
+            
+            // Set last updated timestamp
+            data.lastUpdated = new Date().toISOString();
+            
+            // Populate all tags from the pre-computed list
+            if (data.allTags && Array.isArray(data.allTags)) {
+                data.allTags.forEach(tag => allTags.add(tag));
             }
+            
+            console.log(`Loaded ${data.totalRecipes} recipes with ${data.allTags.length} unique tags`);
+            
+            return data.recipes || [];
+            
         } catch (error) {
-            console.error(error);
+            console.error("Error fetching recipe summaries:", error);
+            return [];
         }
-        return fetchedRecipes;
+    }
+
+    /**
+     * Function to load a single recipe's full details on demand.
+     * Uses caching to avoid repeated network requests.
+     */
+    async function loadRecipeDetails(filename) {
+        // Check cache first
+        if (recipeCache.has(filename)) {
+            return recipeCache.get(filename);
+        }
+
+        try {
+            const recipeResponse = await fetch(`recipes/${filename}.json`);
+            if (!recipeResponse.ok) {
+                throw new Error(`Failed to fetch ${filename}.json: ${recipeResponse.statusText}`);
+            }
+
+            const recipe = await recipeResponse.json();
+            recipe.filename = filename;
+
+            // Calculate ingredient ratios for scaling
+            if (recipe.ingredients.length > 0 && recipe.ingredients[0].quantity > 0) {
+                const baseQuantity = recipe.ingredients[0].quantity;
+                recipe.ingredients.forEach((ingredient) => {
+                    ingredient.ratio = ingredient.quantity / baseQuantity;
+                });
+            }
+
+            // Cache the recipe
+            recipeCache.set(filename, recipe);
+            return recipe;
+        } catch (error) {
+            console.error(`Error loading recipe ${filename}:`, error);
+            return null;
+        }
     }
 
     // Function to render all available tags
@@ -176,56 +196,63 @@
     }
 
     // Function to display a single recipe's details
-    function showRecipeDetail(filename) {
-        const recipe = recipes.find((r) => r.filename === filename);
-        if (!recipe) {
-            console.error("Recipe not found:", filename);
-            return;
-        }
-        currentRecipe = recipe; // Store the current recipe for scaling
-        recipeListContainer.classList.add("hidden");
-        recipeDetailContainer.classList.remove("hidden");
+    async function showRecipeDetail(filename) {
+        try {
+            // Load full recipe details
+            const recipe = await loadRecipeDetails(filename);
+            if (!recipe) {
+                console.error("Recipe not found:", filename);
+                return;
+            }
 
-        recipeDetailName.textContent = recipe.name;
-        recipeDetailDescription.textContent = recipe.description;
+            currentRecipe = recipe; // Store the current recipe for scaling
+            recipeListContainer.classList.add("hidden");
+            recipeDetailContainer.classList.remove("hidden");
 
-        // Set up servings display and control
-        if (recipe.servings) {
-            servingsInput.value = recipe.servings.quantity;
-            servingsUnit.textContent = recipe.servings.unit;
-        } else {
-            servingsInput.value = 1;
-            servingsUnit.textContent = "份";
-        }
+            recipeDetailName.textContent = recipe.name;
+            recipeDetailDescription.textContent = recipe.description;
 
-        // Remove any existing event listeners to avoid duplicates
-        servingsInput.removeEventListener("input", handleServingsChange);
+            // Set up servings display and control
+            if (recipe.servings) {
+                servingsInput.value = recipe.servings.quantity;
+                servingsUnit.textContent = recipe.servings.unit;
+            } else {
+                servingsInput.value = 1;
+                servingsUnit.textContent = "份";
+            }
 
-        // Render ingredients with scaling functionality
-        renderIngredients();
+            // Remove any existing event listeners to avoid duplicates
+            servingsInput.removeEventListener("input", handleServingsChange);
 
-        // Attach event listener to servings input for scaling
-        servingsInput.addEventListener("input", handleServingsChange);
+            // Render ingredients with scaling functionality
+            renderIngredients();
 
-        // Render steps
-        recipeDetailSteps.innerHTML = "";
-        recipe.steps.forEach((step) => {
-            const listItem = document.createElement("li");
-            listItem.textContent = step;
-            recipeDetailSteps.appendChild(listItem);
-        });
+            // Attach event listener to servings input for scaling
+            servingsInput.addEventListener("input", handleServingsChange);
 
-        // Render notes or hide the container if there are none
-        recipeDetailNotes.innerHTML = "";
-        if (recipe.notes && recipe.notes.length > 0) {
-            recipe.notes.forEach((note) => {
+            // Render steps
+            recipeDetailSteps.innerHTML = "";
+            recipe.steps.forEach((step) => {
                 const listItem = document.createElement("li");
-                listItem.textContent = note;
-                recipeDetailNotes.appendChild(listItem);
+                listItem.textContent = step;
+                recipeDetailSteps.appendChild(listItem);
             });
-            recipeDetailNotesContainer.classList.remove("hidden");
-        } else {
-            recipeDetailNotesContainer.classList.add("hidden");
+
+            // Render notes or hide the container if there are none
+            recipeDetailNotes.innerHTML = "";
+            if (recipe.notes && recipe.notes.length > 0) {
+                recipe.notes.forEach((note) => {
+                    const listItem = document.createElement("li");
+                    listItem.textContent = note;
+                    recipeDetailNotes.appendChild(listItem);
+                });
+                recipeDetailNotesContainer.classList.remove("hidden");
+            } else {
+                recipeDetailNotesContainer.classList.add("hidden");
+            }
+        } catch (error) {
+            console.error("Error displaying recipe details:", error);
+            // Optionally show error message to user
         }
     }
 
@@ -308,7 +335,7 @@
 
     // Initial call to fetch data and render the list when the page loads
     window.onload = async () => {
-        recipes = await fetchRecipeData();
+        recipes = await fetchRecipeSummaries();
         renderTags();
         renderRecipeList();
     };
