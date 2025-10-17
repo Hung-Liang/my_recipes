@@ -24,15 +24,15 @@
     let selectedTags = new Set(); // Store currently selected tags
 
     /**
-     * Function to fetch recipe summaries from Info.json.
+     * Function to fetch recipe summaries from info.json.
      * This approach loads all recipe metadata in a single request,
      * avoiding multiple network calls during initialization.
      */
     async function fetchRecipeSummaries() {
         try {
-            const response = await fetch("asset/Info.json");
+            const response = await fetch("asset/info.json");
             if (!response.ok) {
-                throw new Error(`Failed to fetch Info.json: ${response.statusText}`);
+                throw new Error(`Failed to fetch info.json: ${response.statusText}`);
             }
             const data = await response.json();
             

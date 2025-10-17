@@ -5,13 +5,13 @@ import json
 def update_recipe_list():
     """
     Dynamically updates asset/recipes.json with the list of JSON files
-    in the recipes directory and creates asset/Info.json with recipe summaries.
+    in the recipes directory and creates asset/info.json with recipe summaries.
     """
     script_dir = os.path.dirname(os.path.abspath(__file__))
     recipes_dir = os.path.join(script_dir, 'recipes')
     asset_dir = os.path.join(script_dir, 'asset')
     recipes_list_path = os.path.join(asset_dir, 'recipes.json')
-    info_path = os.path.join(asset_dir, 'Info.json')
+    info_path = os.path.join(asset_dir, 'info.json')
 
     try:
         recipe_files = [
@@ -25,7 +25,7 @@ def update_recipe_list():
     # Generate recipe file list (for backward compatibility)
     recipe_paths = [f"recipes/{file}" for file in recipe_files]
     
-    # Generate recipe summaries for Info.json
+    # Generate recipe summaries for info.json
     recipe_summaries = []
     all_tags = set()
     
@@ -56,7 +56,7 @@ def update_recipe_list():
             print(f"Warning: Could not process {file}: {e}")
             continue
     
-    # Create Info.json structure
+    # Create info.json structure
     info_data = {
         "recipes": recipe_summaries,
         "allTags": sorted(list(all_tags)),
@@ -68,7 +68,7 @@ def update_recipe_list():
     with open(recipes_list_path, 'w', encoding='utf-8') as f:
         json.dump(recipe_paths, f, indent=4)
     
-    # Write Info.json
+    # Write info.json
     with open(info_path, 'w', encoding='utf-8') as f:
         json.dump(info_data, f, indent=4, ensure_ascii=False)
 
