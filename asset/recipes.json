@@ -1,7 +1,17 @@
 [
+    "recipes/oatmeal_pancakes.json",
+    "recipes/high_protein_buffalo_chicken_tacos.json",
+    "recipes/spicy_cheesy_garlic_quesadilla.json",
+    "recipes/air_fryer_sweet_potato_chunks.json",
     "recipes/braised_chicken.json",
     "recipes/mapo_tofu.json",
+    "recipes/lemon_garlic_salmon_baked_rice.json",
+    "recipes/high_protein_korean_roasted_chicken_with_sweet_sticky_rice.json",
     "recipes/self_made_racha.json",
+    "recipes/high_protein_crispy_beef_arayes.json",
     "recipes/spice_chicken_thigh.json",
-    "recipes/tomato_pasta.json"
+    "recipes/chia_seed_pudding.json",
+    "recipes/honey_garlic_chicken_rice_bowl.json",
+    "recipes/tomato_pasta.json",
+    "recipes/st_louis_style_smoked_ribs.json"
 ]
