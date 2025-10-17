@@ -3,7 +3,7 @@ name: Update Recipe List
 on:
   push:
     branches:
-      - main
+      - master
     paths:
       - 'recipes/**'
 
