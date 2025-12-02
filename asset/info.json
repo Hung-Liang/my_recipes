@@ -36,6 +36,16 @@
             ]
         },
         {
+            "filename": "long_beans_braised_noodle",
+            "name": "四季豆悶麵",
+            "description": "好吃又簡單的乾麵",
+            "tags": [
+                "主食",
+                "簡單",
+                "快速"
+            ]
+        },
+        {
             "filename": "air_fryer_sweet_potato_chunks",
             "name": "氣炸鍋地瓜塊",
             "description": "一道簡單、快速、健康的氣炸鍋配菜，將地瓜塊以橄欖油、鹽和黑胡椒調味後，烤至外酥內軟。",
@@ -191,6 +201,7 @@
         "中式",
         "中東",
         "中東風味",
+        "主食",
         "低溫慢煮",
         "健康",
         "地瓜",
@@ -203,6 +214,7 @@
         "川菜",
         "布丁",
         "快手菜",
+        "快速",
         "捲餅",
         "早餐",
         "晚餐",
@@ -248,6 +260,6 @@
         "麻辣",
         "點心"
     ],
-    "totalRecipes": 16,
+    "totalRecipes": 17,
     "lastUpdated": null
 }
