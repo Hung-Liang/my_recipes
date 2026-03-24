@@ -18,17 +18,37 @@
 
     // Store original quantities for scaling
     let currentRecipe = null;
-    let recipes = []; // This will hold the recipe summaries (name, description, tags, filename)
+    let recipes = []; // This will hold the recipe summaries
     let recipeCache = new Map(); // Cache for full recipe data
     let allTags = new Set(); // Store all unique tags
     let selectedTags = new Set(); // Store currently selected tags
+    
+    // Pagination state
+    let itemsPerPage = 9;
+    let displayedCount = 9;
 
     /**
      * Function to fetch recipe summaries from info.json.
-     * This approach loads all recipe metadata in a single request,
-     * avoiding multiple network calls during initialization.
+     * Implements basic caching to localStorage for faster initial paint.
      */
     async function fetchRecipeSummaries() {
+        const CACHE_KEY = "recipe_summaries_cache";
+        
+        // Try to load from cache first for immediate display
+        const cachedData = localStorage.getItem(CACHE_KEY);
+        if (cachedData) {
+            try {
+                const parsed = JSON.parse(cachedData);
+                recipes = parsed.recipes || [];
+                if (parsed.allTags) parsed.allTags.forEach(tag => allTags.add(tag));
+                renderTags();
+                renderRecipeList();
+                console.log("Loaded from cache");
+            } catch (e) {
+                console.error("Cache parsing error", e);
+            }
+        }
+
         try {
             const response = await fetch("asset/info.json");
             if (!response.ok) {
@@ -36,21 +56,21 @@
             }
             const data = await response.json();
             
-            // Set last updated timestamp
-            data.lastUpdated = new Date().toISOString();
-            
-            // Populate all tags from the pre-computed list
+            // Update recipes and tags
+            recipes = data.recipes || [];
+            allTags.clear();
             if (data.allTags && Array.isArray(data.allTags)) {
                 data.allTags.forEach(tag => allTags.add(tag));
             }
             
-            console.log(`Loaded ${data.totalRecipes} recipes with ${data.allTags.length} unique tags`);
+            // Save to cache
+            localStorage.setItem(CACHE_KEY, JSON.stringify(data));
             
-            return data.recipes || [];
+            return recipes;
             
         } catch (error) {
             console.error("Error fetching recipe summaries:", error);
-            return [];
+            return recipes; // Return cached if available
         }
     }
 
@@ -114,6 +134,7 @@
         } else {
             selectedTags.add(tag);
         }
+        displayedCount = itemsPerPage; // Reset pagination on filter
         renderTags();
         renderRecipeList();
     }
@@ -132,6 +153,7 @@
     // Function to clear all selected tags
     function clearAllTags() {
         selectedTags.clear();
+        displayedCount = itemsPerPage; // Reset pagination
         renderTags();
         renderRecipeList();
     }
@@ -151,10 +173,11 @@
         });
     }
 
-    // Function to render the list of recipes
+    // Function to render the list of recipes with pagination
     function renderRecipeList() {
         recipeListContainer.innerHTML = "";
         const filteredRecipes = getFilteredRecipes();
+        const recipesToShow = filteredRecipes.slice(0, displayedCount);
 
         if (filteredRecipes.length === 0) {
             const noResultsDiv = document.createElement("div");
@@ -167,7 +190,7 @@
             return;
         }
 
-        filteredRecipes.forEach((recipe) => {
+        recipesToShow.forEach((recipe) => {
             const card = document.createElement("div");
             card.className =
                 "bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 p-6 border border-gray-200 cursor-pointer";
@@ -187,17 +210,38 @@
 
             card.innerHTML = `
                 <h2 class="text-2xl font-semibold text-gray-900 mb-2">${recipe.name}</h2>
-                <p class="text-gray-600">${recipe.description}</p>
+                <p class="text-gray-600 line-clamp-2">${recipe.description}</p>
                 ${tagsHtml}
             `;
             card.onclick = () => showRecipeDetail(recipe.filename);
             recipeListContainer.appendChild(card);
         });
+
+        // Add "Load More" button if there are more recipes to show
+        if (displayedCount < filteredRecipes.length) {
+            const loadMoreContainer = document.createElement("div");
+            loadMoreContainer.className = "col-span-full flex justify-center py-8";
+            const loadMoreButton = document.createElement("button");
+            loadMoreButton.className = "px-6 py-2 bg-blue-500 text-white rounded-full hover:bg-blue-600 transition-colors shadow-md";
+            loadMoreButton.textContent = "載入更多食譜";
+            loadMoreButton.onclick = (e) => {
+                e.stopPropagation();
+                displayedCount += itemsPerPage;
+                renderRecipeList();
+                // Scroll slightly to show new items
+                window.scrollBy({ top: 200, behavior: 'smooth' });
+            };
+            loadMoreContainer.appendChild(loadMoreButton);
+            recipeListContainer.appendChild(loadMoreContainer);
+        }
     }
 
     // Function to display a single recipe's details
     async function showRecipeDetail(filename) {
         try {
+            // Show loading state if needed
+            recipeDetailName.textContent = "載入中...";
+            
             // Load full recipe details
             const recipe = await loadRecipeDetails(filename);
             if (!recipe) {
@@ -208,6 +252,8 @@
             currentRecipe = recipe; // Store the current recipe for scaling
             recipeListContainer.classList.add("hidden");
             recipeDetailContainer.classList.remove("hidden");
+            // Scroll to top
+            window.scrollTo(0, 0);
 
             recipeDetailName.textContent = recipe.name;
             recipeDetailDescription.textContent = recipe.description;
@@ -252,7 +298,6 @@
             }
         } catch (error) {
             console.error("Error displaying recipe details:", error);
-            // Optionally show error message to user
         }
     }
 
@@ -312,10 +357,8 @@
         const allInputs = document.querySelectorAll(".ingredient-input");
         allInputs.forEach((input) => {
             if (input !== changedInput) {
-                // Fixed: Access the data attribute using camelCase
                 const otherOriginalQuantity = parseFloat(input.dataset.originalQuantity);
                 const newCalculatedQuantity = otherOriginalQuantity * scalingFactor;
-                // Round to 2 decimal places for better readability
                 input.value = newCalculatedQuantity.toFixed(2);
             }
         });
@@ -333,10 +376,10 @@
     // Attach event listener to clear tags button
     clearTagsButton.addEventListener("click", clearAllTags);
 
-    // Initial call to fetch data and render the list when the page loads
-    window.onload = async () => {
-        recipes = await fetchRecipeSummaries();
+    // Initial call to fetch data and render the list when DOM is ready
+    document.addEventListener("DOMContentLoaded", async () => {
+        await fetchRecipeSummaries();
         renderTags();
         renderRecipeList();
-    };
+    });
 })();

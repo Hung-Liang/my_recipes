@@ -45,7 +45,34 @@
         id="recipe-list-container"
         class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
       >
-        <!-- Recipe cards will be injected here by JavaScript -->
+        <!-- Skeleton placeholders -->
+        <div class="bg-white rounded-2xl shadow-sm p-6 border border-gray-100 animate-pulse">
+          <div class="h-8 bg-gray-200 rounded w-3/4 mb-4"></div>
+          <div class="h-4 bg-gray-200 rounded w-full mb-2"></div>
+          <div class="h-4 bg-gray-200 rounded w-5/6 mb-4"></div>
+          <div class="flex gap-2">
+            <div class="h-6 bg-gray-200 rounded-full w-12"></div>
+            <div class="h-6 bg-gray-200 rounded-full w-16"></div>
+          </div>
+        </div>
+        <div class="bg-white rounded-2xl shadow-sm p-6 border border-gray-100 animate-pulse hidden md:block">
+          <div class="h-8 bg-gray-200 rounded w-3/4 mb-4"></div>
+          <div class="h-4 bg-gray-200 rounded w-full mb-2"></div>
+          <div class="h-4 bg-gray-200 rounded w-5/6 mb-4"></div>
+          <div class="flex gap-2">
+            <div class="h-6 bg-gray-200 rounded-full w-12"></div>
+            <div class="h-6 bg-gray-200 rounded-full w-16"></div>
+          </div>
+        </div>
+        <div class="bg-white rounded-2xl shadow-sm p-6 border border-gray-100 animate-pulse hidden lg:block">
+          <div class="h-8 bg-gray-200 rounded w-3/4 mb-4"></div>
+          <div class="h-4 bg-gray-200 rounded w-full mb-2"></div>
+          <div class="h-4 bg-gray-200 rounded w-5/6 mb-4"></div>
+          <div class="flex gap-2">
+            <div class="h-6 bg-gray-200 rounded-full w-12"></div>
+            <div class="h-6 bg-gray-200 rounded-full w-16"></div>
+          </div>
+        </div>
       </div>
 
       <!-- Recipe detail section -->
