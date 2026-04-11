@@ -22,21 +22,38 @@
         </p>
       </header>
 
-      <!-- Tags filter section -->
-      <div class="mb-8">
-        <h2 class="text-2xl font-bold text-gray-900 mb-4">標籤篩選</h2>
-        <div id="tags-container" class="flex flex-wrap gap-2 mb-4">
-          <!-- Tags will be injected here by JavaScript -->
+      <!-- Search and Tags filter section -->
+      <div class="mb-8 space-y-6">
+        <!-- Search Bar -->
+        <div class="relative max-w-xl mx-auto md:mx-0">
+          <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+            <svg class="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+            </svg>
+          </div>
+          <input
+            id="search-input"
+            type="text"
+            placeholder="搜尋食譜名稱、描述或標籤..."
+            class="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-xl leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-blue-500 focus:border-blue-500 sm:text-sm shadow-sm transition-all"
+          />
         </div>
-        <div class="text-sm text-gray-600">
-          <span>已選擇標籤：</span>
-          <span id="selected-tags" class="font-medium">無</span>
-          <button
-            id="clear-tags"
-            class="ml-4 text-blue-600 hover:text-blue-800 underline hidden"
-          >
-            清除所有篩選
-          </button>
+
+        <div>
+          <h2 class="text-2xl font-bold text-gray-900 mb-4">標籤篩選</h2>
+          <div id="tags-container" class="flex flex-wrap gap-2 mb-4">
+            <!-- Tags will be injected here by JavaScript -->
+          </div>
+          <div class="text-sm text-gray-600 flex items-center flex-wrap gap-2">
+            <span>已選擇標籤：</span>
+            <span id="selected-tags" class="font-medium">無</span>
+            <button
+              id="clear-tags"
+              class="text-blue-600 hover:text-blue-800 underline hidden"
+            >
+              清除所有篩選
+            </button>
+          </div>
         </div>
       </div>
 

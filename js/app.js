@@ -15,6 +15,7 @@
     const tagsContainer = document.getElementById("tags-container");
     const selectedTagsSpan = document.getElementById("selected-tags");
     const clearTagsButton = document.getElementById("clear-tags");
+    const searchInput = document.getElementById("search-input");
 
     // Store original quantities for scaling
     let currentRecipe = null;
@@ -22,6 +23,7 @@
     let recipeCache = new Map(); // Cache for full recipe data
     let allTags = new Set(); // Store all unique tags
     let selectedTags = new Set(); // Store currently selected tags
+    let searchTerm = ""; // Store current search keyword
     
     // Pagination state
     let itemsPerPage = 9;
@@ -78,23 +80,23 @@
      * Function to load a single recipe's full details on demand.
      * Uses caching to avoid repeated network requests.
      */
-    async function loadRecipeDetails(filename) {
+    async function loadRecipeDetails(path) {
         // Check cache first
-        if (recipeCache.has(filename)) {
-            return recipeCache.get(filename);
+        if (recipeCache.has(path)) {
+            return recipeCache.get(path);
         }
 
         try {
-            const recipeResponse = await fetch(`recipes/${filename}.json`);
+            const recipeResponse = await fetch(`recipes/${path}`);
             if (!recipeResponse.ok) {
-                throw new Error(`Failed to fetch ${filename}.json: ${recipeResponse.statusText}`);
+                throw new Error(`Failed to fetch ${path}: ${recipeResponse.statusText}`);
             }
 
             const recipe = await recipeResponse.json();
-            recipe.filename = filename;
+            recipe.path = path;
 
             // Calculate ingredient ratios for scaling
-            if (recipe.ingredients.length > 0 && recipe.ingredients[0].quantity > 0) {
+            if (recipe.ingredients && recipe.ingredients.length > 0 && recipe.ingredients[0].quantity > 0) {
                 const baseQuantity = recipe.ingredients[0].quantity;
                 recipe.ingredients.forEach((ingredient) => {
                     ingredient.ratio = ingredient.quantity / baseQuantity;
@@ -102,10 +104,10 @@
             }
 
             // Cache the recipe
-            recipeCache.set(filename, recipe);
+            recipeCache.set(path, recipe);
             return recipe;
         } catch (error) {
-            console.error(`Error loading recipe ${filename}:`, error);
+            console.error(`Error loading recipe ${path}:`, error);
             return null;
         }
     }
@@ -158,23 +160,41 @@
         renderRecipeList();
     }
 
-    // Function to filter recipes based on selected tags
+    // Function to filter recipes based on selected tags and search term
     function getFilteredRecipes() {
-        if (selectedTags.size === 0) {
-            return recipes;
+        let filtered = recipes;
+
+        // Filter by tags
+        if (selectedTags.size > 0) {
+            filtered = filtered.filter((recipe) => {
+                if (!recipe.tags || !Array.isArray(recipe.tags)) {
+                    return false;
+                }
+                return Array.from(selectedTags).every((selectedTag) =>
+                    recipe.tags.includes(selectedTag)
+                );
+            });
         }
-        return recipes.filter((recipe) => {
-            if (!recipe.tags || !Array.isArray(recipe.tags)) {
-                return false;
-            }
-            return Array.from(selectedTags).every((selectedTag) =>
-                recipe.tags.includes(selectedTag)
+
+        // Filter by search term
+        if (searchTerm) {
+            const lowTerm = searchTerm.toLowerCase();
+            filtered = filtered.filter((recipe) => 
+                recipe.name.toLowerCase().includes(lowTerm) || 
+                recipe.description.toLowerCase().includes(lowTerm) ||
+                (recipe.tags && recipe.tags.some(tag => tag.toLowerCase().includes(lowTerm)))
             );
-        });
+        }
+
+        return filtered;
     }
 
     // Function to render the list of recipes with pagination
     function renderRecipeList() {
+        // Ensure we are in list view
+        recipeListContainer.classList.remove("hidden");
+        recipeDetailContainer.classList.add("hidden");
+        
         recipeListContainer.innerHTML = "";
         const filteredRecipes = getFilteredRecipes();
         const recipesToShow = filteredRecipes.slice(0, displayedCount);
@@ -213,7 +233,9 @@
                 <p class="text-gray-600 line-clamp-2">${recipe.description}</p>
                 ${tagsHtml}
             `;
-            card.onclick = () => showRecipeDetail(recipe.filename);
+            card.onclick = () => {
+                window.location.hash = `recipe/${recipe.path}`;
+            };
             recipeListContainer.appendChild(card);
         });
 
@@ -246,6 +268,7 @@
             const recipe = await loadRecipeDetails(filename);
             if (!recipe) {
                 console.error("Recipe not found:", filename);
+                window.location.hash = ""; // Back to list if not found
                 return;
             }
 
@@ -298,6 +321,18 @@
             }
         } catch (error) {
             console.error("Error displaying recipe details:", error);
+            window.location.hash = "";
+        }
+    }
+
+    // Function to handle routing based on hash
+    function handleRouting() {
+        const hash = window.location.hash;
+        if (hash.startsWith("#recipe/")) {
+            const filename = hash.substring(8);
+            showRecipeDetail(filename);
+        } else {
+            renderRecipeList();
         }
     }
 
@@ -364,22 +399,28 @@
         });
     }
 
-    // Function to show the recipe list and hide the detail view
-    function showRecipeList() {
-        recipeListContainer.classList.remove("hidden");
-        recipeDetailContainer.classList.add("hidden");
-    }
-
     // Attach event listener to the back button
-    backButton.addEventListener("click", showRecipeList);
+    backButton.addEventListener("click", () => {
+        window.location.hash = "";
+    });
 
     // Attach event listener to clear tags button
     clearTagsButton.addEventListener("click", clearAllTags);
+
+    // Attach event listener to search input
+    searchInput.addEventListener("input", (e) => {
+        searchTerm = e.target.value;
+        displayedCount = itemsPerPage; // Reset pagination on search
+        renderRecipeList();
+    });
+
+    // Handle back/forward navigation
+    window.addEventListener("hashchange", handleRouting);
 
     // Initial call to fetch data and render the list when DOM is ready
     document.addEventListener("DOMContentLoaded", async () => {
         await fetchRecipeSummaries();
         renderTags();
-        renderRecipeList();
+        handleRouting(); // Call routing instead of just renderRecipeList
     });
 })();
