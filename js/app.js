@@ -16,6 +16,17 @@
     const selectedTagsSpan = document.getElementById("selected-tags");
     const clearTagsButton = document.getElementById("clear-tags");
     const searchInput = document.getElementById("search-input");
+    const categoryNav = document.getElementById("category-nav");
+
+    // Category mapping for display
+    const CATEGORY_MAP = {
+        'poultry': '家禽/雞肉',
+        'meat': '肉類料理',
+        'seafood': '海鮮料理',
+        'staples': '主食/麵飯',
+        'snacks_desserts': '點心/早餐',
+        'sauces_basics': '醬料/基礎'
+    };
 
     // Store original quantities for scaling
     let currentRecipe = null;
@@ -200,15 +211,16 @@
         return filtered;
     }
 
-    // Function to render the list of recipes with pagination
+    // Function to render the list of recipes with grouping by category
     function renderRecipeList() {
         // Ensure we are in list view
         recipeListContainer.classList.remove("hidden");
         recipeDetailContainer.classList.add("hidden");
         
         recipeListContainer.innerHTML = "";
+        categoryNav.innerHTML = "";
+        
         const filteredRecipes = getFilteredRecipes();
-        const recipesToShow = filteredRecipes.slice(0, displayedCount);
 
         if (filteredRecipes.length === 0) {
             const noResultsDiv = document.createElement("div");
@@ -221,52 +233,71 @@
             return;
         }
 
-        recipesToShow.forEach((recipe) => {
-            const card = document.createElement("div");
-            card.className =
-                "bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 p-6 border border-gray-200 cursor-pointer";
-
-            // Create tags display
-            const tagsHtml =
-                recipe.tags && recipe.tags.length > 0
-                    ? `<div class="flex flex-wrap gap-1 mt-3">
-                     ${recipe.tags
-                         .map(
-                             (tag) =>
-                                 `<span class="px-2 py-1 text-xs rounded-full bg-gray-100 text-gray-600">${tag}</span>`
-                         )
-                         .join("")}
-                   </div>`
-                    : "";
-
-            card.innerHTML = `
-                <h2 class="text-2xl font-semibold text-gray-900 mb-2">${recipe.name}</h2>
-                <p class="text-gray-600 line-clamp-2">${recipe.description}</p>
-                ${tagsHtml}
-            `;
-            card.onclick = () => {
-                window.location.hash = `recipe/${recipe.path}`;
-            };
-            recipeListContainer.appendChild(card);
+        // Group recipes by category
+        const groups = {};
+        filteredRecipes.forEach(recipe => {
+            const cat = recipe.path.split('/')[0];
+            if (!groups[cat]) groups[cat] = [];
+            groups[cat].push(recipe);
         });
 
-        // Add "Load More" button if there are more recipes to show
-        if (displayedCount < filteredRecipes.length) {
-            const loadMoreContainer = document.createElement("div");
-            loadMoreContainer.className = "col-span-full flex justify-center py-8";
-            const loadMoreButton = document.createElement("button");
-            loadMoreButton.className = "px-6 py-2 bg-blue-500 text-white rounded-full hover:bg-blue-600 transition-colors shadow-md";
-            loadMoreButton.textContent = "載入更多食譜";
-            loadMoreButton.onclick = (e) => {
-                e.stopPropagation();
-                displayedCount += itemsPerPage;
-                renderRecipeList();
-                // Scroll slightly to show new items
-                window.scrollBy({ top: 200, behavior: 'smooth' });
+        // Define sort order based on CATEGORY_MAP keys
+        const sortedCats = Object.keys(CATEGORY_MAP).filter(cat => groups[cat]);
+
+        sortedCats.forEach(cat => {
+            // 1. Create Navigation Button
+            const navBtn = document.createElement("button");
+            navBtn.className = "px-4 py-2 text-sm font-medium rounded-lg bg-white border border-gray-200 text-gray-700 hover:bg-blue-50 hover:text-blue-600 hover:border-blue-200 transition-all shadow-sm";
+            navBtn.textContent = CATEGORY_MAP[cat] || cat;
+            navBtn.onclick = () => {
+                const element = document.getElementById(`section-${cat}`);
+                if (element) {
+                    const offset = 20; // Extra padding from top
+                    const elementPosition = element.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - offset;
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: "smooth"
+                    });
+                }
             };
-            loadMoreContainer.appendChild(loadMoreButton);
-            recipeListContainer.appendChild(loadMoreContainer);
-        }
+            categoryNav.appendChild(navBtn);
+
+            // 2. Create Section Header
+            const header = document.createElement("div");
+            header.id = `section-${cat}`;
+            header.className = "col-span-full mt-8 mb-4 first:mt-0";
+            header.innerHTML = `
+                <div class="flex items-center space-x-4">
+                    <h2 class="text-2xl font-bold text-gray-900">${CATEGORY_MAP[cat] || cat}</h2>
+                    <div class="flex-grow h-px bg-gray-200"></div>
+                    <span class="text-sm text-gray-500 font-medium">${groups[cat].length} 份食譜</span>
+                </div>
+            `;
+            recipeListContainer.appendChild(header);
+
+            // 3. Create Recipe Cards for this category
+            groups[cat].forEach(recipe => {
+                const card = document.createElement("div");
+                card.className = "bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 p-6 border border-gray-200 cursor-pointer flex flex-col h-full";
+
+                const tagsHtml = recipe.tags && recipe.tags.length > 0
+                    ? `<div class="flex flex-wrap gap-1 mt-auto pt-4">
+                         ${recipe.tags.map(tag => `<span class="px-2 py-1 text-xs rounded-full bg-gray-100 text-gray-600">${tag}</span>`).join("")}
+                       </div>`
+                    : "";
+
+                card.innerHTML = `
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">${recipe.name}</h3>
+                    <p class="text-gray-600 line-clamp-2 text-sm mb-4">${recipe.description}</p>
+                    ${tagsHtml}
+                `;
+                card.onclick = () => {
+                    window.location.hash = `recipe/${recipe.path}`;
+                };
+                recipeListContainer.appendChild(card);
+            });
+        });
     }
 
     // Function to display a single recipe's details
