@@ -41,11 +41,19 @@
         if (cachedData) {
             try {
                 const parsed = JSON.parse(cachedData);
-                recipes = parsed.recipes || [];
-                if (parsed.allTags) parsed.allTags.forEach(tag => allTags.add(tag));
-                renderTags();
-                renderRecipeList();
-                console.log("Loaded from cache");
+                // Validation: If any recipe is missing the 'path' attribute, the cache is stale
+                const isStale = parsed.recipes && parsed.recipes.length > 0 && !parsed.recipes[0].path;
+                
+                if (!isStale) {
+                    recipes = parsed.recipes || [];
+                    if (parsed.allTags) parsed.allTags.forEach(tag => allTags.add(tag));
+                    renderTags();
+                    renderRecipeList();
+                    console.log("Loaded from cache");
+                } else {
+                    console.log("Cache is stale (missing path), ignoring...");
+                    localStorage.removeItem(CACHE_KEY);
+                }
             } catch (e) {
                 console.error("Cache parsing error", e);
             }
