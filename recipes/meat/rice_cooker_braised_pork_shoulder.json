@@ -14,34 +14,34 @@
   ],
   "ingredients": [
     {
-      "name": "豆腐乳",
-      "quantity": 1,
-      "unit": "塊"
-    },
-    {
-      "name": "蜂蜜",
-      "quantity": 1,
-      "unit": "杓"
-    },
-    {
-      "name": "蠔油",
-      "quantity": 1,
-      "unit": "杓"
-    },
-    {
       "name": "梅花肉",
       "quantity": 600,
       "unit": "g"
     },
     {
+      "name": "豆腐乳",
+      "quantity": 20,
+      "unit": "g"
+    },
+    {
+      "name": "蜂蜜",
+      "quantity": 15,
+      "unit": "g"
+    },
+    {
+      "name": "蠔油",
+      "quantity": 15,
+      "unit": "ml"
+    },
+    {
       "name": "醬油",
-      "quantity": 1,
-      "unit": "大杓"
+      "quantity": 15,
+      "unit": "ml"
     },
     {
       "name": "蔥",
-      "quantity": 2,
-      "unit": "支"
+      "quantity": 30,
+      "unit": "g"
     },
     {
       "name": "薑",
@@ -50,13 +50,13 @@
     },
     {
       "name": "鹽巴",
-      "quantity": 0.5,
-      "unit": "tsp"
+      "quantity": 3,
+      "unit": "g"
     },
     {
       "name": "胡椒粉",
-      "quantity": 0.25,
-      "unit": "tsp"
+      "quantity": 0.5,
+      "unit": "g"
     }
   ],
   "steps": [
@@ -70,6 +70,11 @@
   ],
   "notes": [
     "梅花肉務必購買「塊狀」而非肉片，這樣燉煮出來的口感才會好且保有肉汁。",
-    "電鍋跳起後建議悶 10 到 15 分鐘再開蓋，風味會更佳。"
+    "電鍋跳起後建議悶 10 到 15 分鐘再開蓋，風味會更佳。",
+    "豆腐乳：1 塊約為 20 g。",
+    "蜂蜜、蠔油、醬油：1 杓/大杓換算為 15 g 或 15 ml。",
+    "蔥：2 支約為 30 g。",
+    "鹽巴：0.5 tsp 約換算為 3 g。",
+    "胡椒粉：0.25 tsp 約換算為 0.5 g。"
   ]
 }

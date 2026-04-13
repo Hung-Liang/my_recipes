@@ -24,23 +24,23 @@
     },
     {
       "name": "鹽巴",
-      "quantity": 0.5,
-      "unit": "tsp"
+      "quantity": 3,
+      "unit": "g"
     },
     {
       "name": "雞蛋",
-      "quantity": 1,
-      "unit": "顆"
+      "quantity": 50,
+      "unit": "g"
     },
     {
       "name": "玉米澱粉",
-      "quantity": 1,
-      "unit": "tbsp"
+      "quantity": 10,
+      "unit": "g"
     },
     {
       "name": "粗粒黑胡椒",
-      "quantity": 1,
-      "unit": "tsp"
+      "quantity": 2,
+      "unit": "g"
     },
     {
       "name": "熱水",
@@ -49,13 +49,13 @@
     },
     {
       "name": "醬油",
-      "quantity": 1,
-      "unit": "tbsp"
+      "quantity": 15,
+      "unit": "ml"
     },
     {
       "name": "蠔油",
-      "quantity": 1,
-      "unit": "tbsp"
+      "quantity": 15,
+      "unit": "ml"
     },
     {
       "name": "冰糖",
@@ -64,8 +64,8 @@
     },
     {
       "name": "勾芡用澱粉水",
-      "quantity": 1,
-      "unit": "tbsp"
+      "quantity": 15,
+      "unit": "ml"
     }
   ],
   "steps": [
@@ -79,6 +79,10 @@
   "notes": [
     "馬鈴薯絲必須確實擠乾水分，這是確保漢堡排在煎炸過程中不散開的關鍵技術。",
     "醬汁的鹹甜度可根據個人口味調整冰糖與醬油的比例。",
-    "建議使用中小火慢煎，確保馬鈴薯絲與牛肉內部完全熟透且表面不過焦。"
+    "建議使用中小火慢煎，確保馬鈴薯絲與牛肉內部完全熟透且表面不過焦。",
+    "雞蛋：1 顆約為 50 g。",
+    "玉米澱粉、醬油、蠔油、澱粉水：1 tbsp 約換算為 10-15 g 或 ml。",
+    "鹽巴：0.5 tsp 約換算為 3 g。",
+    "粗粒黑胡椒：1 tsp 約換算為 2 g。"
   ]
 }

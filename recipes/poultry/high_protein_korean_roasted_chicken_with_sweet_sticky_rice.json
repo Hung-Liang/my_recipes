@@ -29,33 +29,33 @@
     },
     {
       "name": "蒜粉",
-      "quantity": 2,
-      "unit": "tsp"
+      "quantity": 6,
+      "unit": "g"
     },
     {
       "name": "洋蔥粉",
-      "quantity": 1,
-      "unit": "tsp"
+      "quantity": 2.5,
+      "unit": "g"
     },
     {
       "name": "煙燻紅椒粉",
-      "quantity": 1,
-      "unit": "tsp"
+      "quantity": 2,
+      "unit": "g"
     },
     {
       "name": "白胡椒",
-      "quantity": 1,
-      "unit": "tsp"
+      "quantity": 2,
+      "unit": "g"
     },
     {
       "name": "薑粉",
-      "quantity": 1,
-      "unit": "tsp"
+      "quantity": 2,
+      "unit": "g"
     },
     {
       "name": "鹽",
-      "quantity": 2,
-      "unit": "tsp"
+      "quantity": 12,
+      "unit": "g"
     },
     {
       "name": "噴油",
@@ -79,8 +79,8 @@
     },
     {
       "name": "鹽（糯米飯用）",
-      "quantity": 0.5,
-      "unit": "tsp"
+      "quantity": 3,
+      "unit": "g"
     }
   ],
   "steps": [
@@ -93,8 +93,11 @@
   ],
   "notes": [
     "可選配料：蒸青江菜、照燒醬、黑芝麻、蔥花。",
-    "糯米飯的鹽用量可依個人口味調整至 1 tsp。",
+    "糯米飯的鹽用量可依個人口味調整至約 6 g (1 tsp)。",
     "冷藏可保存 5 天。",
-    "加熱建議：去掉蓋子，覆蓋濕紙巾，微波 3-4 分鐘以保持肉質水分。"
+    "加熱建議：去掉蓋子，覆蓋濕紙巾，微波 3-4 分鐘以保持肉質水分。",
+    "蒜粉：2 tsp 約換算為 6 g。",
+    "洋蔥粉、煙燻紅椒粉、薑粉、白胡椒：1 tsp 約換算為 2-2.5 g。",
+    "鹽：2 tsp 約換算為 12 g；0.5 tsp 約換算為 3 g。"
   ]
 }
