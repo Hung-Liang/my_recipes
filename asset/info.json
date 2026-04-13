@@ -99,7 +99,7 @@
         {
             "path": "sauces_basics/homemade_cream_cheese.json",
             "filename": "homemade_cream_cheese",
-            "name": "自製奶油乳酪 (Cream Cheese)",
+            "name": "自製奶油乳酪",
             "description": "使用希臘優格與鹽麴製作的簡易自製奶油乳酪，只需混合並冷藏即可完成。",
             "tags": [
                 "自製",
