@@ -25,7 +25,8 @@
         'seafood': '海鮮料理',
         'staples': '主食/麵飯',
         'snacks_desserts': '點心/早餐',
-        'sauces_basics': '醬料/基礎'
+        'sauces_basics': '醬料/基礎',
+        'unsort': '待分類'
     };
 
     // Store original quantities for scaling
