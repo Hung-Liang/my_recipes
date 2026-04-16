@@ -249,6 +249,17 @@
             ]
         },
         {
+            "path": "snacks_desserts/creamy_peach_beverage.json",
+            "filename": "creamy_peach_beverage",
+            "name": "奶油水蜜桃飲",
+            "description": "一款口感滑順、奶香濃郁的水蜜桃風味飲品，結合了淡奶與煉乳的香甜。",
+            "tags": [
+                "甜點",
+                "飲品",
+                "水蜜桃"
+            ]
+        },
+        {
             "path": "snacks_desserts/oatmeal_pancakes.json",
             "filename": "oatmeal_pancakes",
             "name": "燕麥薄餅",
@@ -337,6 +348,7 @@
         "家常菜",
         "日式",
         "氣炸鍋",
+        "水蜜桃",
         "海鮮",
         "漢堡排",
         "澱粉/主食",
@@ -347,6 +359,7 @@
         "煙燻/慢煮",
         "照燒",
         "牛肉",
+        "甜點",
         "生酮友善",
         "簡單",
         "紅燒",
@@ -363,10 +376,11 @@
         "雞胸肉料理",
         "電鍋",
         "韓式",
+        "飲品",
         "高蛋白",
         "麻辣",
         "點心/小吃"
     ],
-    "totalRecipes": 28,
+    "totalRecipes": 29,
     "lastUpdated": null
 }
