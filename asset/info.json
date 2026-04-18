@@ -87,6 +87,87 @@
             ]
         },
         {
+            "path": "sauces_basics/poached_style_seasoning_sauce.json",
+            "filename": "poached_style_seasoning_sauce",
+            "name": "白灼汁",
+            "description": "這是一款常用於海鮮、蔬菜及肉類的萬用白灼醬汁，能有效提鮮並激發食材本味。",
+            "tags": [
+                "醬汁",
+                "粵式",
+                "調味"
+            ]
+        },
+        {
+            "path": "sauces_basics/red_braised_sauce.json",
+            "filename": "red_braised_sauce",
+            "name": "紅燒汁",
+            "description": "這是一款經典的中式紅燒醬汁，結合了老抽的上色效果與多種糖分的焦糖化作用，能為食材提供紅潤誘人的色澤與醇厚的鹹甜滋味。",
+            "tags": [
+                "醬汁",
+                "紅燒",
+                "中式",
+                "燉煮"
+            ]
+        },
+        {
+            "path": "sauces_basics/jiang_xiang_sauce.json",
+            "filename": "jiang_xiang_sauce",
+            "name": "醬香汁",
+            "description": "濃郁的鹹甜醬汁，適合用於悶燒排骨、牛肉、筍乾或茄子，賦予食材飽滿的紅亮色澤與層次感。",
+            "tags": [
+                "醬香",
+                "紅燒",
+                "中式醬汁"
+            ]
+        },
+        {
+            "path": "sauces_basics/char_siu_sauce.json",
+            "filename": "char_siu_sauce",
+            "name": "叉燒汁",
+            "description": "經典的港式風味醬汁，紅亮誘人，主要用於製作蜜汁叉燒、叉燒排骨，亦可用於炒飯或撈麵。",
+            "tags": [
+                "粵式",
+                "叉燒",
+                "燒烤醬"
+            ]
+        },
+        {
+            "path": "sauces_basics/teriyaki_sauce.json",
+            "filename": "teriyaki_sauce",
+            "name": "照燒汁",
+            "description": "這是一款鹹甜平衡且富有光澤的照燒醬汁，質地濃稠，非常適合作為各類肉類與豆製品的亮面塗層（Glaze）。",
+            "tags": [
+                "醬汁",
+                "日式",
+                "照燒",
+                "家常"
+            ]
+        },
+        {
+            "path": "sauces_basics/fish_flavored_sauce.json",
+            "filename": "fish_flavored_sauce",
+            "name": "魚香汁",
+            "description": "這是一款經典的川式味型醬汁，具備酸、甜、鹹、鮮、香的複合風味，是製作魚香系列菜餚的核心調料。",
+            "tags": [
+                "醬汁",
+                "魚香",
+                "川菜",
+                "熱炒"
+            ]
+        },
+        {
+            "path": "sauces_basics/kung_pao_sauce.json",
+            "filename": "kung_pao_sauce",
+            "name": "宮保汁",
+            "description": "這是一款經典的川式宮保風味醬汁，具備鹹、甜、酸的完美平衡，能為料理提供誘人的油亮光澤。",
+            "tags": [
+                "醬汁",
+                "川菜",
+                "宮保",
+                "熱炒"
+            ]
+        },
+        {
             "path": "sauces_basics/self_made_racha.json",
             "filename": "self_made_racha",
             "name": "自製是拉差辣醬",
@@ -97,6 +178,18 @@
             ]
         },
         {
+            "path": "sauces_basics/black_pepper_sauce.json",
+            "filename": "black_pepper_sauce",
+            "name": "黑椒汁",
+            "description": "這是一款萬用的黑胡椒醬汁，適用於多種熱炒菜餚，如牛柳、意粉及排骨等。",
+            "tags": [
+                "醬汁",
+                "黑胡椒",
+                "港式",
+                "熱炒"
+            ]
+        },
+        {
             "path": "sauces_basics/homemade_cream_cheese.json",
             "filename": "homemade_cream_cheese",
             "name": "自製奶油乳酪",
@@ -104,6 +197,30 @@
             "tags": [
                 "自製",
                 "醬料/調料"
+            ]
+        },
+        {
+            "path": "sauces_basics/korean_sweet_and_spicy_sauce.json",
+            "filename": "korean_sweet_and_spicy_sauce",
+            "name": "韓式甜辣醬",
+            "description": "這是一款道地的韓式風味醬汁，完美平衡了香辣、酸甜與蒜香，是製作韓式拌飯與炸雞的靈魂醬料。",
+            "tags": [
+                "醬汁",
+                "韓式",
+                "甜辣",
+                "拌飯"
+            ]
+        },
+        {
+            "path": "sauces_basics/spicy_cold_dressing.json",
+            "filename": "spicy_cold_dressing",
+            "name": "涼拌汁",
+            "description": "萬能通用涼拌醬汁，鮮香微辣且層次豐富，適合各式涼菜與麵食拌勻即食。",
+            "tags": [
+                "醬汁",
+                "涼菜",
+                "麻辣",
+                "拌麵"
             ]
         },
         {
@@ -128,6 +245,18 @@
                 "澱粉/主食",
                 "簡單",
                 "豬肉"
+            ]
+        },
+        {
+            "path": "staples/creamy_tomato_sauce_pasta.json",
+            "filename": "creamy_tomato_sauce_pasta",
+            "name": "奶油番茄醬義大利麵",
+            "description": "這是一款超級簡單的義大利麵，幾乎可以在一個平底鍋內完成。只需將所有材料加入鍋中混合，是值得收藏的簡易醬料食譜。",
+            "tags": [
+                "義大利麵",
+                "西式料理",
+                "簡易料理",
+                "單鍋料理"
             ]
         },
         {
@@ -174,6 +303,53 @@
             ]
         },
         {
+            "path": "staples/buffalo_chicken_stuffed_crust_pizza.json",
+            "filename": "buffalo_chicken_stuffed_crust_pizza",
+            "name": "水牛城辣雞起司夾心餅皮披薩",
+            "description": "這是一款利用低碳捲餅皮製作的創意披薩，邊緣包裹著牽絲的摩佐羅拉起司條，內餡則是香辣濃郁的水牛城雞肉，適合追求低碳飲食又想大快朵頤的人。",
+            "tags": [
+                "低碳",
+                "氣炸鍋",
+                "披薩",
+                "水牛城辣雞",
+                "簡易料理"
+            ]
+        },
+        {
+            "path": "staples/creamy_tofu_shell_pasta.json",
+            "filename": "creamy_tofu_shell_pasta",
+            "name": "奶油豆腐白醬貝殼麵",
+            "description": "這是一款利用板豆腐與燕麥奶調製而成的蔬食白醬義大利麵，口感濃郁且清爽健康。",
+            "tags": [
+                "蔬食",
+                "義大利麵",
+                "板豆腐",
+                "白醬"
+            ]
+        },
+        {
+            "path": "snacks_desserts/oreo_brownie.json",
+            "filename": "oreo_brownie",
+            "name": "OREO 布朗尼",
+            "description": "運用 OREO 餅乾本身成份，加入牛奶混和氣炸，快速完成口感紮實的布朗尼。",
+            "tags": [
+                "氣炸鍋料理",
+                "OREO",
+                "布朗尼"
+            ]
+        },
+        {
+            "path": "snacks_desserts/egg_tart_crust_tangyuan.json",
+            "filename": "egg_tart_crust_tangyuan",
+            "name": "蛋塔皮包湯圓",
+            "description": "使用現成蛋塔皮包裹湯圓，經氣炸鍋烘烤後，呈現外層酥脆、內餡流心的創意甜點。",
+            "tags": [
+                "氣炸鍋料理",
+                "創意點心",
+                "甜點"
+            ]
+        },
+        {
             "path": "snacks_desserts/creamy_peach_beverage.json",
             "filename": "creamy_peach_beverage",
             "name": "奶油水蜜桃飲",
@@ -182,6 +358,17 @@
                 "甜點",
                 "飲品",
                 "水蜜桃"
+            ]
+        },
+        {
+            "path": "snacks_desserts/chocolate_mousse_cake.json",
+            "filename": "chocolate_mousse_cake",
+            "name": "巧克力慕斯蛋糕",
+            "description": "僅需牛奶與巧克力，透過微波加熱與冷藏，即可做出絲滑濃郁的慕斯蛋糕。",
+            "tags": [
+                "微波爐料理",
+                "巧克力甜點",
+                "免烤箱"
             ]
         },
         {
@@ -197,6 +384,19 @@
             ]
         },
         {
+            "path": "snacks_desserts/cheese_potato_croquettes.json",
+            "filename": "cheese_potato_croquettes",
+            "name": "起司馬鈴薯可樂餅",
+            "description": "這是一款外皮酥脆、內餡綿密且帶有拉絲起司驚喜的馬鈴薯可樂餅，混合了多種辛香料提升風味，是絕佳的點心選擇。",
+            "tags": [
+                "點心",
+                "開胃菜",
+                "炸物",
+                "起司",
+                "馬鈴薯"
+            ]
+        },
+        {
             "path": "snacks_desserts/parmesan_onion_crisps.json",
             "filename": "parmesan_onion_crisps",
             "name": "帕瑪森洋蔥脆餅",
@@ -204,6 +404,17 @@
             "tags": [
                 "烤箱",
                 "點心/小吃"
+            ]
+        },
+        {
+            "path": "snacks_desserts/creme_brulee.json",
+            "filename": "creme_brulee",
+            "name": "烤布蕾",
+            "description": "使用純粹的蛋奶配方，製作出滑嫩的布丁底，再烘烤出香脆的焦糖表層。",
+            "tags": [
+                "氣炸鍋料理",
+                "法式甜點",
+                "烤布蕾"
             ]
         },
         {
@@ -225,6 +436,17 @@
                 "澱粉/主食",
                 "素食",
                 "高蛋白"
+            ]
+        },
+        {
+            "path": "snacks_desserts/wang_zai_mochi.json",
+            "filename": "wang_zai_mochi",
+            "name": "旺仔麻糬",
+            "description": "利用旺仔小饅頭與牛奶混和，透過氣炸加熱轉化為軟糯 Q 彈的創意麻糬點心。",
+            "tags": [
+                "氣炸鍋料理",
+                "創意點心",
+                "簡易甜點"
             ]
         },
         {
@@ -311,6 +533,19 @@
             ]
         },
         {
+            "path": "poultry/rice_cooker_scallion_chicken.json",
+            "filename": "rice_cooker_scallion_chicken",
+            "name": "電鍋無水蔥油雞",
+            "description": "這是一道利用電鍋溫和加熱特性完成的無水料理。雞肉在烹煮過程中會釋放原汁，搭配大量的蔥段與薑片，口感鮮嫩多汁，醬汁精華更是拌飯神物。",
+            "tags": [
+                "電鍋料理",
+                "無水料理",
+                "家常菜",
+                "雞肉",
+                "高蛋白質"
+            ]
+        },
+        {
             "path": "poultry/high_protein_chicken_calzone.json",
             "filename": "high_protein_chicken_calzone",
             "name": "高蛋白雞胸肉披薩餃",
@@ -337,50 +572,96 @@
         }
     ],
     "allTags": [
+        "OREO",
         "一鍋到底",
         "中式",
+        "中式醬汁",
         "中東",
         "主食",
         "低GI",
+        "低碳",
         "低碳水",
         "健身料理",
+        "免烤箱",
         "創意料理",
+        "創意點心",
+        "叉燒",
+        "單鍋料理",
+        "宮保",
+        "家常",
         "家常菜",
+        "川菜",
+        "巧克力甜點",
+        "布朗尼",
+        "微波爐料理",
+        "披薩",
+        "拌飯",
+        "拌麵",
         "日式",
+        "板豆腐",
         "氣炸鍋",
+        "氣炸鍋料理",
+        "水牛城辣雞",
         "水蜜桃",
+        "法式甜點",
         "海鮮",
+        "涼菜",
+        "港式",
         "漢堡排",
         "澱粉/主食",
+        "炸物",
+        "烤布蕾",
         "烤箱",
         "烤箱料理",
         "焗烤",
+        "無水料理",
         "煙燻",
         "煙燻/慢煮",
         "照燒",
+        "熱炒",
+        "燉煮",
+        "燒烤醬",
         "牛肉",
+        "甜辣",
         "甜點",
         "生酮友善",
+        "白醬",
         "簡單",
+        "簡易料理",
+        "簡易甜點",
+        "粵式",
         "紅燒",
         "素食",
+        "義大利麵",
         "自製",
+        "蔬食",
         "西式",
+        "西式料理",
+        "調味",
         "豆腐",
         "豬肉",
         "豬肉/牛肉",
+        "起司",
         "配菜",
         "醬料/調料",
         "醬汁",
+        "醬香",
+        "開胃菜",
         "雞肉",
         "雞胸肉料理",
         "電鍋",
+        "電鍋料理",
         "韓式",
         "飲品",
+        "馬鈴薯",
         "高蛋白",
+        "高蛋白質",
+        "魚香",
         "麻辣",
+        "黑胡椒",
+        "點心",
         "點心/小吃"
     ],
-    "totalRecipes": 29,
+    "totalRecipes": 49,
     "lastUpdated": null
 }
