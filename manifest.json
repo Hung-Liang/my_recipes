@@ -1,6 +1,6 @@
 {
-  "name": "我的食譜",
-  "short_name": "我的食譜",
+  "name": "Hung的食譜",
+  "short_name": "Hung的食譜",
   "description": "整理並分享美味食譜的個人網站",
   "start_url": "./index.html",
   "display": "standalone",
