@@ -1,5 +1,8 @@
 // Use a self-contained closure to avoid polluting the global namespace.
 (function () {
+    // Current application version (Sync with sw.js CACHE_NAME)
+    const APP_VERSION = "v1.2.2";
+
     // Get a reference to the main containers
     const recipeListContainer = document.getElementById("recipe-list-container");
     const recipeDetailContainer = document.getElementById("recipe-detail-container");
@@ -561,6 +564,12 @@
                     } catch (err) {
                         console.error("Failed to copy", err);
                     }
+                }
+            };
+        }
+    });
+})();
+     }
                 }
             };
         }
