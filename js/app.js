@@ -469,6 +469,50 @@
         window.location.hash = "";
     });
 
+    // Share functionality
+    const shareButton = document.getElementById("share-button");
+    shareButton.addEventListener("click", async () => {
+        if (!currentRecipe) return;
+
+        const shareData = {
+            title: `Hung的食譜 - ${currentRecipe.name}`,
+            text: currentRecipe.description,
+            url: window.location.href
+        };
+
+        if (navigator.share) {
+            // Mobile: Use native share system
+            try {
+                await navigator.share(shareData);
+                console.log("Successfully shared");
+            } catch (err) {
+                console.log("Error sharing", err);
+            }
+        } else {
+            // PC: Copy to clipboard
+            try {
+                await navigator.clipboard.writeText(window.location.href);
+                
+                // Visual feedback
+                const originalText = shareButton.innerHTML;
+                shareButton.innerHTML = `
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    已複製網址
+                `;
+                shareButton.classList.replace("bg-blue-500", "bg-green-500");
+                
+                setTimeout(() => {
+                    shareButton.innerHTML = originalText;
+                    shareButton.classList.replace("bg-green-500", "bg-blue-500");
+                }, 2000);
+            } catch (err) {
+                console.error("Failed to copy", err);
+            }
+        }
+    });
+
     // Attach event listener to clear tags button
     clearTagsButton.addEventListener("click", clearAllTags);
 
