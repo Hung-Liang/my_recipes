@@ -280,20 +280,17 @@
         const toggleIcon = document.getElementById("toggle-icon");
         const shareBtn = document.getElementById("share-button");
 
-        if (window.innerWidth >= 768 && tagsSection && toggleIcon) {
-            tagsSection.classList.remove("hidden");
-            toggleIcon.classList.add("rotate-180");
-        }
-
         if (toggleBtn && tagsSection && toggleIcon) {
             toggleBtn.onclick = () => {
-                const isHidden = tagsSection.classList.contains("hidden");
+                // Toggle the hidden class
+                const isHidden = tagsSection.classList.toggle("hidden");
+                
+                // Toggle rotation
                 if (isHidden) {
-                    tagsSection.classList.remove("hidden");
-                    toggleIcon.classList.add("rotate-180");
-                } else {
-                    tagsSection.classList.add("hidden");
                     toggleIcon.classList.remove("rotate-180");
+                    toggleIcon.classList.remove("md:rotate-180"); // 確保 md 分點也被移除
+                } else {
+                    toggleIcon.classList.add("rotate-180");
                 }
             };
         }
@@ -322,5 +319,8 @@
     });
 
     window.addEventListener("hashchange", handleRouting);
+    servingsInput.addEventListener("input", renderIngredients);
+})();
+tListener("hashchange", handleRouting);
     servingsInput.addEventListener("input", renderIngredients);
 })();
