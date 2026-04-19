@@ -1,7 +1,7 @@
 // Use a self-contained closure to avoid polluting the global namespace.
 (function () {
     // Current application version (Sync with sw.js CACHE_NAME)
-    const APP_VERSION = "v1.2.6";
+    const APP_VERSION = "v1.2.7";
 
     // Get a reference to the main containers
     const recipeListContainer = document.getElementById("recipe-list-container");
@@ -32,25 +32,28 @@
         'unsort': '待分類'
     };
 
-    // Store original quantities for scaling
+    // Global State
     let currentRecipe = null;
-    let recipes = []; // This will hold the recipe summaries
-    let recipeCache = new Map(); // Cache for full recipe data
-    let allTags = new Set(); // Store all unique tags
-    let selectedTags = new Set(); // Store currently selected tags
-    let searchTerm = ""; // Store current search keyword
+    let recipes = []; 
+    let recipeCache = new Map(); 
+    let allTags = new Set(); 
+    let selectedTags = new Set(); 
+    let searchTerm = ""; 
 
     /**
-     * Function to fetch recipe summaries from info.json.
+     * Fetch recipe summaries with LocalStorage caching.
      */
     async function fetchRecipeSummaries() {
         const CACHE_KEY = "recipe_summaries_cache";
+        
+        // 1. Try Loading from LocalStorage first (Instant paint)
         const cachedData = localStorage.getItem(CACHE_KEY);
         if (cachedData) {
             try {
                 const parsed = JSON.parse(cachedData);
                 if (parsed.recipes && parsed.recipes.length > 0) {
                     recipes = parsed.recipes;
+                    allTags.clear();
                     if (parsed.allTags) parsed.allTags.forEach(tag => allTags.add(tag));
                     renderTags();
                     renderRecipeList();
@@ -60,13 +63,17 @@
             }
         }
 
+        // 2. Fetch fresh data from network
         try {
             const response = await fetch("asset/info.json");
             if (!response.ok) throw new Error(`Failed to fetch info.json`);
             const data = await response.json();
+            
             recipes = data.recipes || [];
             allTags.clear();
             if (data.allTags) data.allTags.forEach(tag => allTags.add(tag));
+            
+            // Update cache and re-render
             localStorage.setItem(CACHE_KEY, JSON.stringify(data));
             renderTags();
             renderRecipeList();
@@ -83,12 +90,6 @@
             if (!response.ok) throw new Error(`Failed to fetch ${path}`);
             const recipe = await response.json();
             recipe.path = path;
-            if (recipe.ingredients && recipe.ingredients.length > 0 && recipe.ingredients[0].quantity > 0) {
-                const baseQuantity = recipe.ingredients[0].quantity;
-                recipe.ingredients.forEach((ing) => {
-                    ing.ratio = ing.quantity / baseQuantity;
-                });
-            }
             recipeCache.set(path, recipe);
             return recipe;
         } catch (error) {
@@ -263,10 +264,13 @@
         else renderRecipeList();
     }
 
+    // --- Initialization ---
     document.addEventListener("DOMContentLoaded", async () => {
+        // 1. Update Version Display immediately
         const versionEl = document.getElementById("app-version");
         if (versionEl) versionEl.textContent = `Version: ${APP_VERSION}`;
 
+        // 2. Setup Toggle logic
         const toggleBtn = document.getElementById("toggle-tags");
         const tagsSection = document.getElementById("tags-filter-section");
         const toggleIcon = document.getElementById("toggle-icon");
@@ -284,6 +288,7 @@
             };
         }
 
+        // 3. Setup Share logic
         if (shareBtn) {
             shareBtn.onclick = async () => {
                 if (!currentRecipe) return;
@@ -298,10 +303,12 @@
             };
         }
 
+        // 4. Setup Input listeners
         if (clearTagsButton) clearTagsButton.onclick = clearAllTags;
         if (searchInput) searchInput.oninput = (e) => { searchTerm = e.target.value; renderRecipeList(); };
         if (backButton) backButton.onclick = () => window.location.hash = "";
 
+        // 5. Initial Data Fetch
         await fetchRecipeSummaries();
         handleRouting();
     });
