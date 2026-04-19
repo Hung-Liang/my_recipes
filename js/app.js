@@ -166,12 +166,16 @@
 
     // Function to update selected tags display
     function updateSelectedTagsDisplay() {
+        const badge = document.getElementById("tag-count-badge");
         if (selectedTags.size === 0) {
             selectedTagsSpan.textContent = "無";
             clearTagsButton.classList.add("hidden");
+            badge.classList.add("hidden");
         } else {
             selectedTagsSpan.textContent = Array.from(selectedTags).join(", ");
             clearTagsButton.classList.remove("hidden");
+            badge.textContent = selectedTags.size;
+            badge.classList.remove("hidden");
         }
     }
 
@@ -181,6 +185,24 @@
         displayedCount = itemsPerPage; // Reset pagination
         renderTags();
         renderRecipeList();
+    }
+
+    // Toggle Tags Panel
+    const toggleBtn = document.getElementById("toggle-tags");
+    const tagsSection = document.getElementById("tags-filter-section");
+    const toggleIcon = document.getElementById("toggle-icon");
+
+    if (toggleBtn) {
+        toggleBtn.addEventListener("click", () => {
+            const isHidden = tagsSection.classList.contains("hidden");
+            if (isHidden) {
+                tagsSection.classList.remove("hidden");
+                toggleIcon.classList.add("rotate-180");
+            } else {
+                tagsSection.classList.add("hidden");
+                toggleIcon.classList.remove("rotate-180");
+            }
+        });
     }
 
     // Function to filter recipes based on selected tags and search term
