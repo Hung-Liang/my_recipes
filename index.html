@@ -6,6 +6,12 @@
     <title>我的食譜</title>
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="asset/icon.png" />
+    <!-- PWA Support -->
+    <link rel="manifest" href="manifest.json" />
+    <meta name="theme-color" content="#3b82f6" />
+    <link rel="apple-touch-icon" href="asset/icon.png" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
     <!-- 載入外部 CSS 檔案，路徑已更新為 css/style.css -->
     <link rel="stylesheet" href="css/style.css" />
     <!-- 載入 Tailwind CSS CDN -->
@@ -184,5 +190,14 @@
     </div>
 
     <script src="js/app.js"></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('./sw.js')
+            .then(reg => console.log('SW registered', reg))
+            .catch(err => console.log('SW registration failed', err));
+        });
+      }
+    </script>
   </body>
 </html>
