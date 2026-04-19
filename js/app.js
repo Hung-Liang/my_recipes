@@ -1,7 +1,7 @@
 // Use a self-contained closure to avoid polluting the global namespace.
 (function () {
     // Current application version (Sync with sw.js CACHE_NAME)
-    const APP_VERSION = "v1.2.3";
+    const APP_VERSION = "v1.2.5";
 
     // Get a reference to the main containers
     const recipeListContainer = document.getElementById("recipe-list-container");
@@ -39,26 +39,17 @@
     let allTags = new Set(); // Store all unique tags
     let selectedTags = new Set(); // Store currently selected tags
     let searchTerm = ""; // Store current search keyword
-    
-    // Pagination state
-    let itemsPerPage = 9;
-    let displayedCount = 9;
 
     /**
      * Function to fetch recipe summaries from info.json.
      */
     async function fetchRecipeSummaries() {
         const CACHE_KEY = "recipe_summaries_cache";
-        
         const cachedData = localStorage.getItem(CACHE_KEY);
         if (cachedData) {
             try {
                 const parsed = JSON.parse(cachedData);
-                const isValid = parsed.recipes && 
-                                parsed.recipes.length > 0 && 
-                                parsed.recipes.every(r => r.path);
-                
-                if (isValid) {
+                if (parsed.recipes && parsed.recipes.length > 0) {
                     recipes = parsed.recipes;
                     if (parsed.allTags) parsed.allTags.forEach(tag => allTags.add(tag));
                     renderTags();
@@ -73,11 +64,12 @@
             const response = await fetch("asset/info.json");
             if (!response.ok) throw new Error(`Failed to fetch info.json`);
             const data = await response.json();
-            
             recipes = data.recipes || [];
             allTags.clear();
             if (data.allTags) data.allTags.forEach(tag => allTags.add(tag));
             localStorage.setItem(CACHE_KEY, JSON.stringify(data));
+            renderTags();
+            renderRecipeList();
             return recipes;
         } catch (error) {
             return recipes;
@@ -282,13 +274,10 @@
 
         if (toggleBtn && tagsSection && toggleIcon) {
             toggleBtn.onclick = () => {
-                // Toggle the hidden class
                 const isHidden = tagsSection.classList.toggle("hidden");
-                
-                // Toggle rotation
                 if (isHidden) {
                     toggleIcon.classList.remove("rotate-180");
-                    toggleIcon.classList.remove("md:rotate-180"); // 確保 md 分點也被移除
+                    toggleIcon.classList.remove("md:rotate-180");
                 } else {
                     toggleIcon.classList.add("rotate-180");
                 }
@@ -314,13 +303,9 @@
         if (backButton) backButton.onclick = () => window.location.hash = "";
 
         await fetchRecipeSummaries();
-        renderTags();
         handleRouting();
     });
 
     window.addEventListener("hashchange", handleRouting);
-    servingsInput.addEventListener("input", renderIngredients);
-})();
-tListener("hashchange", handleRouting);
     servingsInput.addEventListener("input", renderIngredients);
 })();
