@@ -1,14 +1,51 @@
 {
     "recipes": [
         {
-            "path": "meat/braised_beef_lamian.json",
-            "filename": "braised_beef_lamian",
-            "name": "紅燒牛肉拉麵",
-            "description": "一份經典的紅燒牛肉拉麵食譜，以慢燉的牛腱和香濃的湯頭為特色。",
+            "path": "meat/mapo_tofu.json",
+            "filename": "mapo_tofu",
+            "name": "麻婆豆腐",
+            "description": "香到靠北一口肉配三口飯麻婆豆腐",
             "tags": [
                 "中式",
+                "懶人料理",
+                "豆腐",
+                "豬肉/牛肉"
+            ]
+        },
+        {
+            "path": "meat/yakult_ants_climbing_a_tree.json",
+            "filename": "yakult_ants_climbing_a_tree",
+            "name": "養樂多螞蟻上樹",
+            "description": "經典川菜「螞蟻上樹」的創意變奏版，利用養樂多的酸甜果香中和豆瓣醬的鹹辣，讓吸滿肉末與湯汁的冬粉別具一番獨特風味。",
+            "tags": [
+                "創意料理",
+                "懶人料理",
                 "澱粉",
-                "牛肉"
+                "豬肉/牛肉"
+            ]
+        },
+        {
+            "path": "meat/rice_cooker_braised_pork_shoulder.json",
+            "filename": "rice_cooker_braised_pork_shoulder",
+            "name": "電鍋腐乳梅花肉",
+            "description": "只需簡單醃製並使用電鍋即可輕鬆完成的美味豬肉料理，醬香濃郁且肉質軟嫩。",
+            "tags": [
+                "中式",
+                "懶人料理",
+                "豬肉",
+                "電鍋"
+            ]
+        },
+        {
+            "path": "meat/potato_beef_hamburger_steak.json",
+            "filename": "potato_beef_hamburger_steak",
+            "name": "馬鈴薯牛絞肉漢堡排",
+            "description": "將馬鈴薯絲與牛絞肉結合，口感層次豐富且扎實的漢堡排，搭配自製黑胡椒醬汁。",
+            "tags": [
+                "懶人料理",
+                "澱粉",
+                "牛肉",
+                "漢堡排"
             ]
         },
         {
@@ -38,42 +75,14 @@
             ]
         },
         {
-            "path": "meat/mapo_tofu.json",
-            "filename": "mapo_tofu",
-            "name": "麻婆豆腐",
-            "description": "香到靠北一口肉配三口飯麻婆豆腐",
+            "path": "meat/braised_beef_lamian.json",
+            "filename": "braised_beef_lamian",
+            "name": "紅燒牛肉拉麵",
+            "description": "一份經典的紅燒牛肉拉麵食譜，以慢燉的牛腱和香濃的湯頭為特色。",
             "tags": [
                 "中式",
-                "懶人料理",
-                "豬肉",
-                "牛肉",
-                "豆腐"
-            ]
-        },
-        {
-            "path": "meat/potato_beef_hamburger_steak.json",
-            "filename": "potato_beef_hamburger_steak",
-            "name": "馬鈴薯牛絞肉漢堡排",
-            "description": "將馬鈴薯絲與牛絞肉結合，口感層次豐富且扎實的漢堡排，搭配自製黑胡椒醬汁。",
-            "tags": [
-                "日式",
-                "懶人料理",
-                "豬肉",
-                "牛肉",
                 "澱粉",
-                "漢堡排"
-            ]
-        },
-        {
-            "path": "meat/rice_cooker_braised_pork_shoulder.json",
-            "filename": "rice_cooker_braised_pork_shoulder",
-            "name": "電鍋腐乳梅花肉",
-            "description": "只需簡單醃製並使用電鍋即可輕鬆完成的美味豬肉料理，醬香濃郁且肉質軟嫩。",
-            "tags": [
-                "中式",
-                "懶人料理",
-                "豬肉",
-                "電鍋"
+                "牛肉"
             ]
         },
         {
@@ -85,213 +94,6 @@
                 "煙燻",
                 "西式",
                 "豬肉"
-            ]
-        },
-        {
-            "path": "meat/yakult_ants_climbing_a_tree.json",
-            "filename": "yakult_ants_climbing_a_tree",
-            "name": "養樂多螞蟻上樹",
-            "description": "經典川菜「螞蟻上樹」的創意變奏版，利用養樂多的酸甜果香中和豆瓣醬的鹹辣，讓吸滿肉末與湯汁的冬粉別具一番獨特風味。",
-            "tags": [
-                "中式",
-                "懶人料理",
-                "豬肉",
-                "牛肉",
-                "澱粉"
-            ]
-        },
-        {
-            "path": "poultry/braised_chicken.json",
-            "filename": "braised_chicken",
-            "name": "家常紅燒雞腿",
-            "description": "醬香濃郁，下飯一流的家常菜。",
-            "tags": [
-                "中式",
-                "懶人料理",
-                "紅燒",
-                "雞肉"
-            ]
-        },
-        {
-            "path": "poultry/dry_chicken_curry.json",
-            "filename": "dry_chicken_curry",
-            "name": "高蛋白雞胸肉乾咖哩",
-            "description": "這是一道高蛋白質且低熱量的健康料理，利用雞胸肉與大量蔬菜炒香收乾，風味濃郁。相較於日式咖哩塊，使用咖哩粉製作可減少油脂與澱粉攝取，非常適合飲控與忙碌上班族批次製作冷凍備餐。",
-            "tags": [
-                "高蛋白",
-                "雞肉",
-                "懶人料理"
-            ]
-        },
-        {
-            "path": "poultry/high_protein_buffalo_chicken_tacos.json",
-            "filename": "high_protein_buffalo_chicken_tacos",
-            "name": "高蛋白脆皮水牛雞肉塔可",
-            "description": "這是一款口感酥脆、富含蛋白質的水牛城辣醬雞肉塔可。雞肉用香料和辣醬醃製，搭配清爽的優格美乃滋綠醬，包在煎至金黃的迷你玉米餅中。",
-            "tags": [
-                "澱粉",
-                "西式",
-                "雞肉",
-                "高蛋白"
-            ]
-        },
-        {
-            "path": "poultry/high_protein_chicken_calzone.json",
-            "filename": "high_protein_chicken_calzone",
-            "name": "高蛋白雞胸肉披薩餃",
-            "description": "這是一款無麩質、低碳水的創意披薩餃。使用攪碎的雞胸肉作為餅皮底材，內餡包裹著濃郁起司、火腿與鮮甜番茄，提供極高的蛋白質含量，非常適合健身族群。",
-            "tags": [
-                "高蛋白",
-                "低碳"
-            ]
-        },
-        {
-            "path": "poultry/high_protein_korean_roasted_chicken_with_sweet_sticky_rice.json",
-            "filename": "high_protein_korean_roasted_chicken_with_sweet_sticky_rice",
-            "name": "高蛋白韓式烤雞與甜糯米飯",
-            "description": "一道高蛋白的韓式烤雞搭配甜糯米飯的食譜。烤雞使用韓式辣醬、蜂蜜和多種香料醃製，糯米飯則加入米醋和代糖調味。",
-            "tags": [
-                "澱粉",
-                "雞肉",
-                "韓式",
-                "高蛋白"
-            ]
-        },
-        {
-            "path": "poultry/honey_garlic_chicken_rice_bowl.json",
-            "filename": "honey_garlic_chicken_rice_bowl",
-            "name": "蜂蜜蒜香雞肉飯碗",
-            "description": "這是一款豐富多層次的飯碗料理，包含烤至金黃酥脆的蜂蜜蒜香雞肉、用多種香料調味的巴斯馬蒂米飯，以及清爽開胃的醃漬紅洋蔥。",
-            "tags": [
-                "中東",
-                "澱粉",
-                "醬汁",
-                "雞肉"
-            ]
-        },
-        {
-            "path": "poultry/one_pan_baked_chicken_rice.json",
-            "filename": "one_pan_baked_chicken_rice",
-            "name": "烤箱雞胸米飯",
-            "description": "這是一道簡單且營養均衡的高蛋白懶人餐。將雞胸肉、米飯與雞高湯一同烘烤，米飯能吸飽肉汁與高湯精華，口感鮮美且雞肉鮮嫩多汁，非常適合增肌減脂族群。",
-            "tags": [
-                "高蛋白",
-                "低碳",
-                "懶人料理"
-            ]
-        },
-        {
-            "path": "poultry/rice_cooker_scallion_chicken.json",
-            "filename": "rice_cooker_scallion_chicken",
-            "name": "電鍋無水蔥油雞",
-            "description": "這是一道利用電鍋溫和加熱特性完成的無水料理。雞肉在烹煮過程中會釋放原汁，搭配大量的蔥段與薑片，口感鮮嫩多汁，醬汁精華更是拌飯神物。",
-            "tags": [
-                "電鍋",
-                "無水料理",
-                "懶人料理",
-                "雞肉"
-            ]
-        },
-        {
-            "path": "poultry/spice_chicken_thigh.json",
-            "filename": "spice_chicken_thigh",
-            "name": "小烤箱香料雞腿",
-            "description": "使用小烤箱即可完成的香料雞腿，外皮酥脆、內裡多汁，適合小廚房快速料理。",
-            "tags": [
-                "烤箱",
-                "雞肉"
-            ]
-        },
-        {
-            "path": "poultry/teriyaki_chicken_tofu_meatballs.json",
-            "filename": "teriyaki_chicken_tofu_meatballs",
-            "name": "照燒豆腐雞肉丸",
-            "description": "將雞肉泥與豆腐混合製成軟嫩健康的肉丸，水煮後再裹上甜鹹交織的照燒醬汁，是一道非常下飯的家常便當菜。",
-            "tags": [
-                "懶人料理",
-                "日式",
-                "雞肉",
-                "高蛋白"
-            ]
-        },
-        {
-            "path": "sauces_basics/black_pepper_sauce.json",
-            "filename": "black_pepper_sauce",
-            "name": "黑椒汁",
-            "description": "這是一款萬用的黑胡椒醬汁，適用於多種熱炒菜餚，如牛柳、意粉及排骨等。",
-            "tags": [
-                "醬汁",
-                "黑胡椒",
-                "港式",
-                "熱炒"
-            ]
-        },
-        {
-            "path": "sauces_basics/char_siu_sauce.json",
-            "filename": "char_siu_sauce",
-            "name": "叉燒汁",
-            "description": "經典的港式風味醬汁，紅亮誘人，主要用於製作蜜汁叉燒、叉燒排骨，亦可用於炒飯或撈麵。",
-            "tags": [
-                "港式",
-                "叉燒",
-                "燒烤醬"
-            ]
-        },
-        {
-            "path": "sauces_basics/fish_flavored_sauce.json",
-            "filename": "fish_flavored_sauce",
-            "name": "魚香汁",
-            "description": "這是一款經典的川式味型醬汁，具備酸、甜、鹹、鮮、香的複合風味，是製作魚香系列菜餚的核心調料。",
-            "tags": [
-                "醬汁",
-                "魚香",
-                "川菜",
-                "熱炒"
-            ]
-        },
-        {
-            "path": "sauces_basics/homemade_cream_cheese.json",
-            "filename": "homemade_cream_cheese",
-            "name": "自製奶油乳酪",
-            "description": "使用希臘優格與鹽麴製作的簡易自製奶油乳酪，只需混合並冷藏即可完成。",
-            "tags": [
-                "自製",
-                "醬汁"
-            ]
-        },
-        {
-            "path": "sauces_basics/jiang_xiang_sauce.json",
-            "filename": "jiang_xiang_sauce",
-            "name": "醬香汁",
-            "description": "濃郁的鹹甜醬汁，適合用於悶燒排骨、牛肉、筍乾或茄子，賦予食材飽滿的紅亮色澤與層次感。",
-            "tags": [
-                "醬香",
-                "紅燒",
-                "醬汁"
-            ]
-        },
-        {
-            "path": "sauces_basics/korean_sweet_and_spicy_sauce.json",
-            "filename": "korean_sweet_and_spicy_sauce",
-            "name": "韓式甜辣醬",
-            "description": "這是一款道地的韓式風味醬汁，完美平衡了香辣、酸甜與蒜香，是製作韓式拌飯與炸雞的靈魂醬料。",
-            "tags": [
-                "醬汁",
-                "韓式",
-                "甜辣",
-                "拌飯"
-            ]
-        },
-        {
-            "path": "sauces_basics/kung_pao_sauce.json",
-            "filename": "kung_pao_sauce",
-            "name": "宮保汁",
-            "description": "這是一款經典的川式宮保風味醬汁，具備鹹、甜、酸的完美平衡，能為料理提供誘人的油亮光澤。",
-            "tags": [
-                "醬汁",
-                "川菜",
-                "宮保",
-                "熱炒"
             ]
         },
         {
@@ -317,25 +119,25 @@
             ]
         },
         {
-            "path": "sauces_basics/self_made_racha.json",
-            "filename": "self_made_racha",
-            "name": "自製是拉差辣醬",
-            "description": "百分百還原市售是拉差辣醬",
+            "path": "sauces_basics/jiang_xiang_sauce.json",
+            "filename": "jiang_xiang_sauce",
+            "name": "醬香汁",
+            "description": "濃郁的鹹甜醬汁，適合用於悶燒排骨、牛肉、筍乾或茄子，賦予食材飽滿的紅亮色澤與層次感。",
             "tags": [
-                "自製",
+                "醬香",
+                "紅燒",
                 "醬汁"
             ]
         },
         {
-            "path": "sauces_basics/spicy_cold_dressing.json",
-            "filename": "spicy_cold_dressing",
-            "name": "涼拌汁",
-            "description": "萬能通用涼拌醬汁，鮮香微辣且層次豐富，適合各式涼菜與麵食拌勻即食。",
+            "path": "sauces_basics/char_siu_sauce.json",
+            "filename": "char_siu_sauce",
+            "name": "叉燒汁",
+            "description": "經典的港式風味醬汁，紅亮誘人，主要用於製作蜜汁叉燒、叉燒排骨，亦可用於炒飯或撈麵。",
             "tags": [
-                "醬汁",
-                "涼菜",
-                "麻辣",
-                "拌麵"
+                "粵式",
+                "叉燒",
+                "燒烤醬"
             ]
         },
         {
@@ -351,6 +153,86 @@
             ]
         },
         {
+            "path": "sauces_basics/fish_flavored_sauce.json",
+            "filename": "fish_flavored_sauce",
+            "name": "魚香汁",
+            "description": "這是一款經典的川式味型醬汁，具備酸、甜、鹹、鮮、香的複合風味，是製作魚香系列菜餚的核心調料。",
+            "tags": [
+                "醬汁",
+                "魚香",
+                "川菜",
+                "熱炒"
+            ]
+        },
+        {
+            "path": "sauces_basics/kung_pao_sauce.json",
+            "filename": "kung_pao_sauce",
+            "name": "宮保汁",
+            "description": "這是一款經典的川式宮保風味醬汁，具備鹹、甜、酸的完美平衡，能為料理提供誘人的油亮光澤。",
+            "tags": [
+                "醬汁",
+                "川菜",
+                "宮保",
+                "熱炒"
+            ]
+        },
+        {
+            "path": "sauces_basics/self_made_racha.json",
+            "filename": "self_made_racha",
+            "name": "自製是拉差辣醬",
+            "description": "百分百還原市售是拉差辣醬",
+            "tags": [
+                "自製",
+                "醬汁"
+            ]
+        },
+        {
+            "path": "sauces_basics/black_pepper_sauce.json",
+            "filename": "black_pepper_sauce",
+            "name": "黑椒汁",
+            "description": "這是一款萬用的黑胡椒醬汁，適用於多種熱炒菜餚，如牛柳、意粉及排骨等。",
+            "tags": [
+                "醬汁",
+                "黑胡椒",
+                "港式",
+                "熱炒"
+            ]
+        },
+        {
+            "path": "sauces_basics/homemade_cream_cheese.json",
+            "filename": "homemade_cream_cheese",
+            "name": "自製奶油乳酪",
+            "description": "使用希臘優格與鹽麴製作的簡易自製奶油乳酪，只需混合並冷藏即可完成。",
+            "tags": [
+                "自製",
+                "醬汁"
+            ]
+        },
+        {
+            "path": "sauces_basics/korean_sweet_and_spicy_sauce.json",
+            "filename": "korean_sweet_and_spicy_sauce",
+            "name": "韓式甜辣醬",
+            "description": "這是一款道地的韓式風味醬汁，完美平衡了香辣、酸甜與蒜香，是製作韓式拌飯與炸雞的靈魂醬料。",
+            "tags": [
+                "醬汁",
+                "韓式",
+                "甜辣",
+                "拌飯"
+            ]
+        },
+        {
+            "path": "sauces_basics/spicy_cold_dressing.json",
+            "filename": "spicy_cold_dressing",
+            "name": "涼拌汁",
+            "description": "萬能通用涼拌醬汁，鮮香微辣且層次豐富，適合各式涼菜與麵食拌勻即食。",
+            "tags": [
+                "醬汁",
+                "涼菜",
+                "麻辣",
+                "拌麵"
+            ]
+        },
+        {
             "path": "sauces_basics/teriyaki_sauce_base.json",
             "filename": "teriyaki_sauce_base",
             "name": "照燒醬汁",
@@ -362,165 +244,67 @@
             ]
         },
         {
-            "path": "seafood/lemon_garlic_salmon_baked_rice.json",
-            "filename": "lemon_garlic_salmon_baked_rice",
-            "name": "檸檬蒜香鮭魚焗飯",
-            "description": "一道結合了檸檬、蒜香和鮭魚的美味焗飯。米飯與奶油、蒜末、洋蔥和蔥混合後烤制，再加入淋上醬汁的鮭魚一起焗烤。",
+            "path": "staples/spam_rice_balls.json",
+            "filename": "spam_rice_balls",
+            "name": "午餐肉飯糰",
+            "description": "這是一款鹹甜適中、香氣十足的簡易飯糰。利用炒香的午餐肉與雞蛋，結合美乃滋的潤滑與海苔的脆香，非常適合作為野餐或快速午餐。",
             "tags": [
-                "海鮮",
+                "懶人料理",
                 "澱粉",
-                "焗烤",
+                "豬肉"
+            ]
+        },
+        {
+            "path": "staples/creamy_tomato_sauce_pasta.json",
+            "filename": "creamy_tomato_sauce_pasta",
+            "name": "奶油番茄醬義大利麵",
+            "description": "這是一款超級簡單的義大利麵，幾乎可以在一個平底鍋內完成。只需將所有材料加入鍋中混合，是值得收藏的簡易醬料食譜。",
+            "tags": [
+                "義大利麵",
+                "西式",
+                "懶人料理"
+            ]
+        },
+        {
+            "path": "staples/tomato_pasta.json",
+            "filename": "tomato_pasta",
+            "name": "美味番茄義大利麵",
+            "description": "經典的番茄義大利麵，簡單又美味。",
+            "tags": [
+                "澱粉",
+                "懶人料理",
                 "西式"
             ]
         },
         {
-            "path": "snacks_desserts/air_fryer_sweet_potato_chunks.json",
-            "filename": "air_fryer_sweet_potato_chunks",
-            "name": "氣炸鍋地瓜塊",
-            "description": "一道簡單、快速、健康的氣炸鍋配菜，將地瓜塊以橄欖油、鹽和黑胡椒調味後，烤至外酥內軟。",
+            "path": "staples/long_beans_braised_noodle.json",
+            "filename": "long_beans_braised_noodle",
+            "name": "四季豆悶麵",
+            "description": "好吃又簡單的乾麵",
             "tags": [
-                "氣炸鍋",
                 "澱粉",
-                "蔬食",
-                "配菜"
+                "懶人料理"
             ]
         },
         {
-            "path": "snacks_desserts/basque_cheesecake.json",
-            "filename": "basque_cheesecake",
-            "name": "巴斯克乳酪蛋糕",
-            "description": "這是一款製作極其簡單且低碳友善的巴斯克蛋糕。透過高溫短時間烘烤，營造出焦香的外皮與濕潤細緻的內餡，冷藏過夜後風味更佳。",
+            "path": "staples/sukiyaki_meat_rice.json",
+            "filename": "sukiyaki_meat_rice",
+            "name": "壽喜燒肉飯",
+            "description": "一鍋到底的懶人美味，將炒香的奶油洋蔥肉片與特調壽喜燒醬汁，結合白米一同炊煮而成的日式壽喜燒風味炊飯。",
             "tags": [
-                "甜點",
-                "低碳",
                 "懶人料理",
-                "烤箱"
+                "日式"
             ]
         },
         {
-            "path": "snacks_desserts/cheese_potato_croquettes.json",
-            "filename": "cheese_potato_croquettes",
-            "name": "起司馬鈴薯可樂餅",
-            "description": "這是一款外皮酥脆、內餡綿密且帶有拉絲起司驚喜的馬鈴薯可樂餅，混合了多種辛香料提升風味，是絕佳的點心選擇。",
-            "tags": [
-                "點心",
-                "開胃菜",
-                "炸物",
-                "起司"
-            ]
-        },
-        {
-            "path": "snacks_desserts/chia_seed_pudding.json",
-            "filename": "chia_seed_pudding",
-            "name": "奇亞籽布丁",
-            "description": "一款簡單製作、富含纖維和蛋白質的奇亞籽布丁，以希臘優格和牛奶為基底，可作為健康的早餐或點心。",
-            "tags": [
-                "高蛋白",
-                "點心"
-            ]
-        },
-        {
-            "path": "snacks_desserts/chocolate_mousse_cake.json",
-            "filename": "chocolate_mousse_cake",
-            "name": "巧克力慕斯蛋糕",
-            "description": "僅需牛奶與巧克力，透過微波加熱與冷藏，即可做出絲滑濃郁的慕斯蛋糕。",
-            "tags": [
-                "微波爐",
-                "甜點",
-                "免烤箱"
-            ]
-        },
-        {
-            "path": "snacks_desserts/creamy_peach_beverage.json",
-            "filename": "creamy_peach_beverage",
-            "name": "奶油水蜜桃飲",
-            "description": "一款口感滑順、奶香濃郁的水蜜桃風味飲品，結合了淡奶與煉乳的香甜。",
-            "tags": [
-                "甜點",
-                "飲品"
-            ]
-        },
-        {
-            "path": "snacks_desserts/creme_brulee.json",
-            "filename": "creme_brulee",
-            "name": "烤布蕾",
-            "description": "使用純粹的蛋奶配方，製作出滑嫩的布丁底，再烘烤出香脆的焦糖表層。",
-            "tags": [
-                "氣炸鍋",
-                "法式甜點",
-                "烤布蕾"
-            ]
-        },
-        {
-            "path": "snacks_desserts/egg_milk_pudding.json",
-            "filename": "egg_milk_pudding",
-            "name": "免烤箱雞蛋牛奶布丁",
-            "description": "僅需四種基礎材料，透過簡單加熱與冷藏，即可做出奶香濃郁、口感Q彈的美味布丁，適合甜點新手製作。",
-            "tags": [
-                "甜點",
-                "懶人料理"
-            ]
-        },
-        {
-            "path": "snacks_desserts/egg_tart_crust_tangyuan.json",
-            "filename": "egg_tart_crust_tangyuan",
-            "name": "蛋塔皮包湯圓",
-            "description": "使用現成蛋塔皮包裹湯圓，經氣炸鍋烘烤後，呈現外層酥脆、內餡流心的創意甜點。",
-            "tags": [
-                "氣炸鍋",
-                "甜點"
-            ]
-        },
-        {
-            "path": "snacks_desserts/homemade_chia_pudding.json",
-            "filename": "homemade_chia_pudding",
-            "name": "自製奇亞籽布丁",
-            "description": "這是一道僅需 5 分鐘準備的高效早餐，透過奇亞籽豐富的可溶性纖維提供持久飽足感並穩定血糖，口感滑順且層次豐富。",
-            "tags": [
-                "甜點",
-                "點心",
-                "懶人料理"
-            ]
-        },
-        {
-            "path": "snacks_desserts/oatmeal_pancakes.json",
-            "filename": "oatmeal_pancakes",
-            "name": "燕麥薄餅",
-            "description": "一款簡單、無油的燕麥片基底薄餅，口感細膩，可以根據個人喜好搭配鹹或甜的餡料。",
+            "path": "staples/spicy_cheesy_garlic_quesadilla.json",
+            "filename": "spicy_cheesy_garlic_quesadilla",
+            "name": "火辣起司蒜味墨西哥捲餅",
+            "description": "一道製作快速、香氣濃郁的墨西哥捲餅，結合了蒜泥、低脂奶油和低脂切達起司，並用義大利綜合香料提味。",
             "tags": [
                 "澱粉",
-                "蔬食",
-                "高蛋白"
-            ]
-        },
-        {
-            "path": "snacks_desserts/oreo_brownie.json",
-            "filename": "oreo_brownie",
-            "name": "OREO 布朗尼",
-            "description": "運用 OREO 餅乾本身成份，加入牛奶混和氣炸，快速完成口感紮實的布朗尼。",
-            "tags": [
-                "氣炸鍋",
-                "甜點"
-            ]
-        },
-        {
-            "path": "snacks_desserts/parmesan_onion_crisps.json",
-            "filename": "parmesan_onion_crisps",
-            "name": "帕瑪森洋蔥脆餅",
-            "description": "將帕瑪森起司與洋蔥切片烘烤至金黃酥脆的簡單小點心。",
-            "tags": [
-                "烤箱",
-                "點心"
-            ]
-        },
-        {
-            "path": "snacks_desserts/wang_zai_mochi.json",
-            "filename": "wang_zai_mochi",
-            "name": "旺仔麻糬",
-            "description": "利用旺仔小饅頭與牛奶混和，透過氣炸加熱轉化為軟糯 Q 彈的創意麻糬點心。",
-            "tags": [
-                "氣炸鍋",
-                "甜點"
+                "西式",
+                "醬汁"
             ]
         },
         {
@@ -548,30 +332,6 @@
             ]
         },
         {
-            "path": "staples/creamy_tomato_sauce_pasta.json",
-            "filename": "creamy_tomato_sauce_pasta",
-            "name": "奶油番茄醬義大利麵",
-            "description": "這是一款超級簡單的義大利麵，幾乎可以在一個平底鍋內完成。只需將所有材料加入鍋中混合，是值得收藏的簡易醬料食譜。",
-            "tags": [
-                "義大利麵",
-                "西式",
-                "懶人料理"
-            ]
-        },
-        {
-            "path": "staples/long_beans_braised_noodle.json",
-            "filename": "long_beans_braised_noodle",
-            "name": "四季豆悶麵",
-            "description": "好吃又簡單的乾麵",
-            "tags": [
-                "中式",
-                "懶人料理",
-                "豬肉",
-                "牛肉",
-                "澱粉"
-            ]
-        },
-        {
             "path": "staples/quick_beef_stir_fried_udon.json",
             "filename": "quick_beef_stir_fried_udon",
             "name": "快速牛肉炒烏龍麵",
@@ -585,48 +345,283 @@
             ]
         },
         {
-            "path": "staples/spam_rice_balls.json",
-            "filename": "spam_rice_balls",
-            "name": "午餐肉飯糰",
-            "description": "這是一款鹹甜適中、香氣十足的簡易飯糰。利用炒香的午餐肉與雞蛋，結合美乃滋的潤滑與海苔的脆香，非常適合作為野餐或快速午餐。",
+            "path": "snacks_desserts/oreo_brownie.json",
+            "filename": "oreo_brownie",
+            "name": "OREO 布朗尼",
+            "description": "運用 OREO 餅乾本身成份，加入牛奶混和氣炸，快速完成口感紮實的布朗尼。",
             "tags": [
-                "懶人料理",
-                "澱粉",
-                "豬肉"
+                "氣炸鍋",
+                "甜點"
             ]
         },
         {
-            "path": "staples/spicy_cheesy_garlic_quesadilla.json",
-            "filename": "spicy_cheesy_garlic_quesadilla",
-            "name": "火辣起司蒜味墨西哥捲餅",
-            "description": "一道製作快速、香氣濃郁的墨西哥捲餅，結合了蒜泥、低脂奶油和低脂切達起司，並用義大利綜合香料提味。",
+            "path": "snacks_desserts/homemade_chia_pudding.json",
+            "filename": "homemade_chia_pudding",
+            "name": "自製奇亞籽布丁",
+            "description": "這是一道僅需 5 分鐘準備的高效早餐，透過奇亞籽豐富的可溶性纖維提供持久飽足感並穩定血糖，口感滑順且層次豐富。",
+            "tags": [
+                "甜點",
+                "點心",
+                "懶人料理"
+            ]
+        },
+        {
+            "path": "snacks_desserts/egg_tart_crust_tangyuan.json",
+            "filename": "egg_tart_crust_tangyuan",
+            "name": "蛋塔皮包湯圓",
+            "description": "使用現成蛋塔皮包裹湯圓，經氣炸鍋烘烤後，呈現外層酥脆、內餡流心的創意甜點。",
+            "tags": [
+                "氣炸鍋",
+                "甜點"
+            ]
+        },
+        {
+            "path": "snacks_desserts/creamy_peach_beverage.json",
+            "filename": "creamy_peach_beverage",
+            "name": "奶油水蜜桃飲",
+            "description": "一款口感滑順、奶香濃郁的水蜜桃風味飲品，結合了淡奶與煉乳的香甜。",
+            "tags": [
+                "甜點",
+                "飲品",
+                "水蜜桃"
+            ]
+        },
+        {
+            "path": "snacks_desserts/chocolate_mousse_cake.json",
+            "filename": "chocolate_mousse_cake",
+            "name": "巧克力慕斯蛋糕",
+            "description": "僅需牛奶與巧克力，透過微波加熱與冷藏，即可做出絲滑濃郁的慕斯蛋糕。",
+            "tags": [
+                "微波爐",
+                "甜點",
+                "免烤箱"
+            ]
+        },
+        {
+            "path": "snacks_desserts/air_fryer_sweet_potato_chunks.json",
+            "filename": "air_fryer_sweet_potato_chunks",
+            "name": "氣炸鍋地瓜塊",
+            "description": "一道簡單、快速、健康的氣炸鍋配菜，將地瓜塊以橄欖油、鹽和黑胡椒調味後，烤至外酥內軟。",
+            "tags": [
+                "氣炸鍋",
+                "澱粉",
+                "素食",
+                "配菜"
+            ]
+        },
+        {
+            "path": "snacks_desserts/egg_milk_pudding.json",
+            "filename": "egg_milk_pudding",
+            "name": "免烤箱雞蛋牛奶布丁",
+            "description": "僅需四種基礎材料，透過簡單加熱與冷藏，即可做出奶香濃郁、口感Q彈的美味布丁，適合甜點新手製作。",
+            "tags": [
+                "甜點",
+                "懶人料理"
+            ]
+        },
+        {
+            "path": "snacks_desserts/cheese_potato_croquettes.json",
+            "filename": "cheese_potato_croquettes",
+            "name": "起司馬鈴薯可樂餅",
+            "description": "這是一款外皮酥脆、內餡綿密且帶有拉絲起司驚喜的馬鈴薯可樂餅，混合了多種辛香料提升風味，是絕佳的點心選擇。",
+            "tags": [
+                "點心",
+                "開胃菜",
+                "炸物",
+                "起司"
+            ]
+        },
+        {
+            "path": "snacks_desserts/parmesan_onion_crisps.json",
+            "filename": "parmesan_onion_crisps",
+            "name": "帕瑪森洋蔥脆餅",
+            "description": "將帕瑪森起司與洋蔥切片烘烤至金黃酥脆的簡單小點心。",
+            "tags": [
+                "烤箱",
+                "點心"
+            ]
+        },
+        {
+            "path": "snacks_desserts/creme_brulee.json",
+            "filename": "creme_brulee",
+            "name": "烤布蕾",
+            "description": "使用純粹的蛋奶配方，製作出滑嫩的布丁底，再烘烤出香脆的焦糖表層。",
+            "tags": [
+                "氣炸鍋",
+                "法式甜點",
+                "烤布蕾"
+            ]
+        },
+        {
+            "path": "snacks_desserts/chia_seed_pudding.json",
+            "filename": "chia_seed_pudding",
+            "name": "奇亞籽布丁",
+            "description": "一款簡單製作、富含纖維和蛋白質的奇亞籽布丁，以希臘優格和牛奶為基底，可作為健康的早餐或點心。",
+            "tags": [
+                "高蛋白",
+                "點心"
+            ]
+        },
+        {
+            "path": "snacks_desserts/basque_cheesecake.json",
+            "filename": "basque_cheesecake",
+            "name": "巴斯克乳酪蛋糕",
+            "description": "這是一款製作極其簡單且低碳友善的巴斯克蛋糕。透過高溫短時間烘烤，營造出焦香的外皮與濕潤細緻的內餡，冷藏過夜後風味更佳。",
+            "tags": [
+                "甜點",
+                "低碳",
+                "懶人料理",
+                "烤箱"
+            ]
+        },
+        {
+            "path": "snacks_desserts/oatmeal_pancakes.json",
+            "filename": "oatmeal_pancakes",
+            "name": "燕麥薄餅",
+            "description": "一款簡單、無油的燕麥片基底薄餅，口感細膩，可以根據個人喜好搭配鹹或甜的餡料。",
+            "tags": [
+                "澱粉",
+                "素食",
+                "高蛋白"
+            ]
+        },
+        {
+            "path": "snacks_desserts/wang_zai_mochi.json",
+            "filename": "wang_zai_mochi",
+            "name": "旺仔麻糬",
+            "description": "利用旺仔小饅頭與牛奶混和，透過氣炸加熱轉化為軟糯 Q 彈的創意麻糬點心。",
+            "tags": [
+                "氣炸鍋",
+                "甜點"
+            ]
+        },
+        {
+            "path": "poultry/high_protein_buffalo_chicken_tacos.json",
+            "filename": "high_protein_buffalo_chicken_tacos",
+            "name": "高蛋白脆皮水牛雞肉塔可",
+            "description": "這是一款口感酥脆、富含蛋白質的水牛城辣醬雞肉塔可。雞肉用香料和辣醬醃製，搭配清爽的優格美乃滋綠醬，包在煎至金黃的迷你玉米餅中。",
             "tags": [
                 "澱粉",
                 "西式",
-                "醬汁"
+                "雞肉",
+                "高蛋白"
             ]
         },
         {
-            "path": "staples/sukiyaki_meat_rice.json",
-            "filename": "sukiyaki_meat_rice",
-            "name": "壽喜燒肉飯",
-            "description": "一鍋到底的懶人美味，將炒香的奶油洋蔥肉片與特調壽喜燒醬汁，結合白米一同炊煮而成的日式壽喜燒風味炊飯。",
+            "path": "poultry/braised_chicken.json",
+            "filename": "braised_chicken",
+            "name": "家常紅燒雞腿",
+            "description": "醬香濃郁，下飯一流的家常菜。",
+            "tags": [
+                "中式",
+                "懶人料理",
+                "紅燒",
+                "雞肉"
+            ]
+        },
+        {
+            "path": "poultry/teriyaki_chicken_tofu_meatballs.json",
+            "filename": "teriyaki_chicken_tofu_meatballs",
+            "name": "照燒豆腐雞肉丸",
+            "description": "將雞肉泥與豆腐混合製成軟嫩健康的肉丸，水煮後再裹上甜鹹交織的照燒醬汁，是一道非常下飯的家常便當菜。",
             "tags": [
                 "日式",
                 "懶人料理",
-                "豬肉",
-                "牛肉",
-                "澱粉"
+                "日式",
+                "雞肉",
+                "高蛋白"
             ]
         },
         {
-            "path": "staples/tomato_pasta.json",
-            "filename": "tomato_pasta",
-            "name": "美味番茄義大利麵",
-            "description": "經典的番茄義大利麵，簡單又美味。",
+            "path": "poultry/honey_garlic_chicken_rice_bowl.json",
+            "filename": "honey_garlic_chicken_rice_bowl",
+            "name": "蜂蜜蒜香雞肉飯碗",
+            "description": "這是一款豐富多層次的飯碗料理，包含烤至金黃酥脆的蜂蜜蒜香雞肉、用多種香料調味的巴斯馬蒂米飯，以及清爽開胃的醃漬紅洋蔥。",
+            "tags": [
+                "中東",
+                "澱粉",
+                "醬汁",
+                "雞肉"
+            ]
+        },
+        {
+            "path": "poultry/spice_chicken_thigh.json",
+            "filename": "spice_chicken_thigh",
+            "name": "小烤箱香料雞腿",
+            "description": "使用小烤箱即可完成的香料雞腿，外皮酥脆、內裡多汁，適合小廚房快速料理。",
+            "tags": [
+                "烤箱",
+                "雞肉"
+            ]
+        },
+        {
+            "path": "poultry/one_pan_baked_chicken_rice.json",
+            "filename": "one_pan_baked_chicken_rice",
+            "name": "烤箱雞胸米飯",
+            "description": "這是一道簡單且營養均衡的高蛋白懶人餐。將雞胸肉、米飯與雞高湯一同烘烤，米飯能吸飽肉汁與高湯精華，口感鮮美且雞肉鮮嫩多汁，非常適合增肌減脂族群。",
+            "tags": [
+                "高蛋白",
+                "低GI",
+                "健身料理",
+                "懶人料理"
+            ]
+        },
+        {
+            "path": "poultry/high_protein_korean_roasted_chicken_with_sweet_sticky_rice.json",
+            "filename": "high_protein_korean_roasted_chicken_with_sweet_sticky_rice",
+            "name": "高蛋白韓式烤雞與甜糯米飯",
+            "description": "一道高蛋白的韓式烤雞搭配甜糯米飯的食譜。烤雞使用韓式辣醬、蜂蜜和多種香料醃製，糯米飯則加入米醋和代糖調味。",
             "tags": [
                 "澱粉",
+                "雞肉",
+                "韓式",
+                "高蛋白"
+            ]
+        },
+        {
+            "path": "poultry/rice_cooker_scallion_chicken.json",
+            "filename": "rice_cooker_scallion_chicken",
+            "name": "電鍋無水蔥油雞",
+            "description": "這是一道利用電鍋溫和加熱特性完成的無水料理。雞肉在烹煮過程中會釋放原汁，搭配大量的蔥段與薑片，口感鮮嫩多汁，醬汁精華更是拌飯神物。",
+            "tags": [
+                "電鍋",
+                "無水料理",
                 "懶人料理",
+                "雞肉"
+            ]
+        },
+        {
+            "path": "poultry/dry_chicken_curry.json",
+            "filename": "dry_chicken_curry",
+            "name": "高蛋白雞胸肉乾咖哩",
+            "description": "這是一道高蛋白質且低熱量的健康料理，利用雞胸肉與大量蔬菜炒香收乾，風味濃郁。相較於日式咖哩塊，使用咖哩粉製作可減少油脂與澱粉攝取，非常適合飲控與忙碌上班族批次製作冷凍備餐。",
+            "tags": [
+                "高蛋白",
+                "雞肉",
+                "懶人料理"
+            ]
+        },
+        {
+            "path": "poultry/high_protein_chicken_calzone.json",
+            "filename": "high_protein_chicken_calzone",
+            "name": "高蛋白雞胸肉披薩餃",
+            "description": "這是一款無麩質、低碳水的創意披薩餃。使用攪碎的雞胸肉作為餅皮底材，內餡包裹著濃郁起司、火腿與鮮甜番茄，提供極高的蛋白質含量，非常適合健身族群。",
+            "tags": [
+                "高蛋白",
+                "低碳",
+                "生酮友善",
+                "健身料理"
+            ]
+        },
+        {
+            "path": "seafood/lemon_garlic_salmon_baked_rice.json",
+            "filename": "lemon_garlic_salmon_baked_rice",
+            "name": "檸檬蒜香鮭魚焗飯",
+            "description": "一道結合了檸檬、蒜香和鮭魚的美味焗飯。米飯與奶油、蒜末、洋蔥和蔥混合後烤制，再加入淋上醬汁的鮭魚一起焗烤。",
+            "tags": [
+                "海鮮",
+                "澱粉",
+                "焗烤",
                 "西式"
             ]
         }
