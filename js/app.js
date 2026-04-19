@@ -466,6 +466,18 @@
 
     // Initial call to fetch data and render the list when DOM is ready
     document.addEventListener("DOMContentLoaded", async () => {
+        // Setup UI Interaction elements first
+        const toggleBtn = document.getElementById("toggle-tags");
+        const tagsSection = document.getElementById("tags-filter-section");
+        const toggleIcon = document.getElementById("toggle-icon");
+        const shareButton = document.getElementById("share-button");
+
+        // PC default: Expand tags if screen is wide (MD breakpoint is 768px)
+        if (window.innerWidth >= 768 && tagsSection && toggleIcon) {
+            tagsSection.classList.remove("hidden");
+            toggleIcon.classList.add("rotate-180");
+        }
+
         await fetchRecipeSummaries();
         renderTags();
         handleRouting();
