@@ -464,72 +464,93 @@
         });
     }
 
-    // Attach event listener to the back button
-    backButton.addEventListener("click", () => {
-        window.location.hash = "";
-    });
-
-    // Share functionality
-    const shareButton = document.getElementById("share-button");
-    shareButton.addEventListener("click", async () => {
-        if (!currentRecipe) return;
-
-        const shareData = {
-            title: `Hung的食譜 - ${currentRecipe.name}`,
-            text: currentRecipe.description,
-            url: window.location.href
-        };
-
-        if (navigator.share) {
-            // Mobile: Use native share system
-            try {
-                await navigator.share(shareData);
-                console.log("Successfully shared");
-            } catch (err) {
-                console.log("Error sharing", err);
-            }
-        } else {
-            // PC: Copy to clipboard
-            try {
-                await navigator.clipboard.writeText(window.location.href);
-                
-                // Visual feedback
-                const originalText = shareButton.innerHTML;
-                shareButton.innerHTML = `
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                    </svg>
-                    已複製網址
-                `;
-                shareButton.classList.replace("bg-blue-500", "bg-green-500");
-                
-                setTimeout(() => {
-                    shareButton.innerHTML = originalText;
-                    shareButton.classList.replace("bg-green-500", "bg-blue-500");
-                }, 2000);
-            } catch (err) {
-                console.error("Failed to copy", err);
-            }
-        }
-    });
-
-    // Attach event listener to clear tags button
-    clearTagsButton.addEventListener("click", clearAllTags);
-
-    // Attach event listener to search input
-    searchInput.addEventListener("input", (e) => {
-        searchTerm = e.target.value;
-        displayedCount = itemsPerPage; // Reset pagination on search
-        renderRecipeList();
-    });
-
-    // Handle back/forward navigation
-    window.addEventListener("hashchange", handleRouting);
-
     // Initial call to fetch data and render the list when DOM is ready
     document.addEventListener("DOMContentLoaded", async () => {
         await fetchRecipeSummaries();
         renderTags();
-        handleRouting(); // Call routing instead of just renderRecipeList
+        handleRouting();
+
+        // Attach event listener to clear tags button
+        if (clearTagsButton) {
+            clearTagsButton.addEventListener("click", clearAllTags);
+        }
+
+        // Attach event listener to search input
+        if (searchInput) {
+            searchInput.addEventListener("input", (e) => {
+                searchTerm = e.target.value;
+                displayedCount = itemsPerPage; // Reset pagination on search
+                renderRecipeList();
+            });
+        }
+
+        // Attach event listener to the back button
+        if (backButton) {
+            backButton.addEventListener("click", () => {
+                window.location.hash = "";
+            });
+        }
+
+        // Setup UI Interaction after content is loaded
+        const toggleBtn = document.getElementById("toggle-tags");
+        const tagsSection = document.getElementById("tags-filter-section");
+        const toggleIcon = document.getElementById("toggle-icon");
+        const shareButton = document.getElementById("share-button");
+
+        // PC default: Expand tags if screen is wide
+        if (window.innerWidth >= 768 && tagsSection && toggleIcon) {
+            tagsSection.classList.remove("hidden");
+            toggleIcon.classList.add("rotate-180");
+        }
+
+        if (toggleBtn && tagsSection && toggleIcon) {
+            toggleBtn.onclick = () => {
+                const isHidden = tagsSection.classList.contains("hidden");
+                if (isHidden) {
+                    tagsSection.classList.remove("hidden");
+                    toggleIcon.classList.add("rotate-180");
+                } else {
+                    tagsSection.classList.add("hidden");
+                    toggleIcon.classList.remove("rotate-180");
+                }
+            };
+        }
+
+        if (shareButton) {
+            shareButton.onclick = async () => {
+                if (!currentRecipe) return;
+                const shareData = {
+                    title: `Hung的食譜 - ${currentRecipe.name}`,
+                    text: currentRecipe.description,
+                    url: window.location.href
+                };
+
+                if (navigator.share) {
+                    try {
+                        await navigator.share(shareData);
+                    } catch (err) {
+                        console.log("Error sharing", err);
+                    }
+                } else {
+                    try {
+                        await navigator.clipboard.writeText(window.location.href);
+                        const originalText = shareButton.innerHTML;
+                        shareButton.innerHTML = `
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            已複製網址
+                        `;
+                        shareButton.classList.replace("bg-blue-500", "bg-green-500");
+                        setTimeout(() => {
+                            shareButton.innerHTML = originalText;
+                            shareButton.classList.replace("bg-green-500", "bg-blue-500");
+                        }, 2000);
+                    } catch (err) {
+                        console.error("Failed to copy", err);
+                    }
+                }
+            };
+        }
     });
 })();
