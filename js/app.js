@@ -1,9 +1,17 @@
 // Use a self-contained closure to avoid polluting the global namespace.
 (function () {
     // Current application version (Sync with sw.js CACHE_NAME)
-    const APP_VERSION = "v1.2.7";
+    const APP_VERSION = "v1.2.8";
 
-    // Get a reference to the main containers
+    // 1. Update Version Display IMMEDIATELY (Script is at bottom of body, so element should exist)
+    try {
+        const versionEl = document.getElementById("app-version");
+        if (versionEl) versionEl.textContent = `Version: ${APP_VERSION}`;
+    } catch (e) {
+        console.error("Failed to set version:", e);
+    }
+
+    // --- DOM References ---
     const recipeListContainer = document.getElementById("recipe-list-container");
     const recipeDetailContainer = document.getElementById("recipe-detail-container");
     const recipeDetailName = document.getElementById("recipe-detail-name");
@@ -21,7 +29,7 @@
     const searchInput = document.getElementById("search-input");
     const categoryNav = document.getElementById("category-nav");
 
-    // Category mapping for display
+    // Category mapping
     const CATEGORY_MAP = {
         'poultry': '家禽/雞肉',
         'meat': '肉類料理',
@@ -32,7 +40,7 @@
         'unsort': '待分類'
     };
 
-    // Global State
+    // State
     let currentRecipe = null;
     let recipes = []; 
     let recipeCache = new Map(); 
@@ -40,13 +48,8 @@
     let selectedTags = new Set(); 
     let searchTerm = ""; 
 
-    /**
-     * Fetch recipe summaries with LocalStorage caching.
-     */
     async function fetchRecipeSummaries() {
         const CACHE_KEY = "recipe_summaries_cache";
-        
-        // 1. Try Loading from LocalStorage first (Instant paint)
         const cachedData = localStorage.getItem(CACHE_KEY);
         if (cachedData) {
             try {
@@ -63,23 +66,18 @@
             }
         }
 
-        // 2. Fetch fresh data from network
         try {
             const response = await fetch("asset/info.json");
-            if (!response.ok) throw new Error(`Failed to fetch info.json`);
+            if (!response.ok) throw new Error(`Fetch failed`);
             const data = await response.json();
-            
             recipes = data.recipes || [];
             allTags.clear();
             if (data.allTags) data.allTags.forEach(tag => allTags.add(tag));
-            
-            // Update cache and re-render
             localStorage.setItem(CACHE_KEY, JSON.stringify(data));
             renderTags();
             renderRecipeList();
-            return recipes;
         } catch (error) {
-            return recipes;
+            console.error(error);
         }
     }
 
@@ -87,7 +85,6 @@
         if (recipeCache.has(path)) return recipeCache.get(path);
         try {
             const response = await fetch(`recipes/${path}`);
-            if (!response.ok) throw new Error(`Failed to fetch ${path}`);
             const recipe = await response.json();
             recipe.path = path;
             recipeCache.set(path, recipe);
@@ -101,22 +98,20 @@
         if (!tagsContainer) return;
         tagsContainer.innerHTML = "";
         Array.from(allTags).sort().forEach((tag) => {
-            const tagButton = document.createElement("button");
-            tagButton.className = selectedTags.has(tag)
-                ? "px-3 py-1 text-sm rounded-full border-2 border-blue-500 bg-blue-500 text-white hover:bg-blue-600 transition-colors"
-                : "px-3 py-1 text-sm rounded-full border-2 border-gray-300 bg-white text-gray-700 hover:border-blue-500 hover:text-blue-500 transition-colors";
-            tagButton.textContent = tag;
-            tagButton.onclick = () => toggleTag(tag);
-            tagsContainer.appendChild(tagButton);
+            const btn = document.createElement("button");
+            btn.className = selectedTags.has(tag)
+                ? "px-3 py-1 text-sm rounded-full border-2 border-blue-500 bg-blue-500 text-white"
+                : "px-3 py-1 text-sm rounded-full border-2 border-gray-300 bg-white text-gray-700";
+            btn.textContent = tag;
+            btn.onclick = () => {
+                if (selectedTags.has(tag)) selectedTags.delete(tag);
+                else selectedTags.add(tag);
+                renderTags();
+                renderRecipeList();
+            };
+            tagsContainer.appendChild(btn);
         });
         updateSelectedTagsDisplay();
-    }
-
-    function toggleTag(tag) {
-        if (selectedTags.has(tag)) selectedTags.delete(tag);
-        else selectedTags.add(tag);
-        renderTags();
-        renderRecipeList();
     }
 
     function updateSelectedTagsDisplay() {
@@ -135,43 +130,29 @@
         }
     }
 
-    function clearAllTags() {
-        selectedTags.clear();
-        renderTags();
-        renderRecipeList();
-    }
-
-    function getFilteredRecipes() {
+    function renderRecipeList() {
+        if (!recipeListContainer) return;
+        recipeListContainer.classList.remove("hidden");
+        if (recipeDetailContainer) recipeDetailContainer.classList.add("hidden");
+        recipeListContainer.innerHTML = "";
+        if (categoryNav) categoryNav.innerHTML = "";
+        
         let filtered = recipes;
         if (selectedTags.size > 0) {
-            filtered = filtered.filter((recipe) => {
-                return Array.from(selectedTags).every((t) => recipe.tags && recipe.tags.includes(t));
-            });
+            filtered = filtered.filter(r => Array.from(selectedTags).every(t => r.tags && r.tags.includes(t)));
         }
         if (searchTerm) {
-            const lowTerm = searchTerm.toLowerCase();
-            filtered = filtered.filter((r) => 
-                r.name.toLowerCase().includes(lowTerm) || 
-                r.description.toLowerCase().includes(lowTerm)
-            );
+            const low = searchTerm.toLowerCase();
+            filtered = filtered.filter(r => r.name.toLowerCase().includes(low) || r.description.toLowerCase().includes(low));
         }
-        return filtered;
-    }
 
-    function renderRecipeList() {
-        recipeListContainer.classList.remove("hidden");
-        recipeDetailContainer.classList.add("hidden");
-        recipeListContainer.innerHTML = "";
-        categoryNav.innerHTML = "";
-        
-        const filteredRecipes = getFilteredRecipes();
-        if (filteredRecipes.length === 0) {
+        if (filtered.length === 0) {
             recipeListContainer.innerHTML = `<div class="col-span-full text-center py-8 text-gray-500">沒有找到符合條件的食譜</div>`;
             return;
         }
 
         const groups = {};
-        filteredRecipes.forEach(r => {
+        filtered.forEach(r => {
             const cat = r.path.split('/')[0];
             if (!groups[cat]) groups[cat] = [];
             groups[cat].push(r);
@@ -179,13 +160,13 @@
 
         Object.keys(CATEGORY_MAP).filter(cat => groups[cat]).forEach(cat => {
             const navBtn = document.createElement("button");
-            navBtn.className = "px-4 py-2 text-sm font-medium rounded-lg bg-white border border-gray-200 text-gray-700 hover:bg-blue-50 transition-all shadow-sm";
+            navBtn.className = "px-4 py-2 text-sm font-medium rounded-lg bg-white border border-gray-200 shadow-sm";
             navBtn.textContent = CATEGORY_MAP[cat] || cat;
             navBtn.onclick = () => {
                 const el = document.getElementById(`section-${cat}`);
                 if (el) window.scrollTo({ top: el.offsetTop - 20, behavior: "smooth" });
             };
-            categoryNav.appendChild(navBtn);
+            if (categoryNav) categoryNav.appendChild(navBtn);
 
             const header = document.createElement("div");
             header.id = `section-${cat}`;
@@ -195,8 +176,8 @@
 
             groups[cat].forEach(r => {
                 const card = document.createElement("div");
-                card.className = "bg-white rounded-2xl shadow-lg p-6 border border-gray-200 cursor-pointer flex flex-col h-full";
-                card.innerHTML = `<h3 class="text-xl font-bold text-gray-900 mb-2">${r.name}</h3><p class="text-gray-600 line-clamp-2 text-sm mb-4">${r.description}</p>`;
+                card.className = "bg-white rounded-2xl shadow-lg p-6 border border-gray-200 cursor-pointer";
+                card.innerHTML = `<h3 class="text-xl font-bold text-gray-900 mb-2">${r.name}</h3><p class="text-gray-600 line-clamp-2 text-sm">${r.description}</p>`;
                 card.onclick = () => window.location.hash = `recipe/${r.path}`;
                 recipeListContainer.appendChild(card);
             });
@@ -204,17 +185,18 @@
     }
 
     async function showRecipeDetail(path) {
+        if (!recipeDetailContainer) return;
         recipeDetailName.textContent = "載入中...";
         const recipe = await loadRecipeDetails(path);
         if (!recipe) { window.location.hash = ""; return; }
         currentRecipe = recipe;
-        recipeListContainer.classList.add("hidden");
+        if (recipeListContainer) recipeListContainer.classList.add("hidden");
         recipeDetailContainer.classList.remove("hidden");
         window.scrollTo(0, 0);
 
         recipeDetailName.textContent = recipe.name;
         recipeDetailDescription.textContent = recipe.description;
-        if (recipe.servings) {
+        if (recipe.servings && servingsInput) {
             servingsInput.value = recipe.servings.quantity;
             servingsUnit.textContent = recipe.servings.unit;
         }
@@ -239,7 +221,7 @@
     }
 
     function renderIngredients() {
-        if (!currentRecipe) return;
+        if (!currentRecipe || !recipeDetailIngredients) return;
         const factor = parseFloat(servingsInput.value) / (currentRecipe.servings ? currentRecipe.servings.quantity : 1);
         recipeDetailIngredients.innerHTML = "";
         currentRecipe.ingredients.forEach((ing) => {
@@ -266,11 +248,10 @@
 
     // --- Initialization ---
     document.addEventListener("DOMContentLoaded", async () => {
-        // 1. Update Version Display immediately
+        // Redundant version update check for safety
         const versionEl = document.getElementById("app-version");
         if (versionEl) versionEl.textContent = `Version: ${APP_VERSION}`;
 
-        // 2. Setup Toggle logic
         const toggleBtn = document.getElementById("toggle-tags");
         const tagsSection = document.getElementById("tags-filter-section");
         const toggleIcon = document.getElementById("toggle-icon");
@@ -288,7 +269,6 @@
             };
         }
 
-        // 3. Setup Share logic
         if (shareBtn) {
             shareBtn.onclick = async () => {
                 if (!currentRecipe) return;
@@ -303,16 +283,14 @@
             };
         }
 
-        // 4. Setup Input listeners
-        if (clearTagsButton) clearTagsButton.onclick = clearAllTags;
+        if (clearTagsButton) clearTagsButton.onclick = () => { selectedTags.clear(); renderTags(); renderRecipeList(); };
         if (searchInput) searchInput.oninput = (e) => { searchTerm = e.target.value; renderRecipeList(); };
         if (backButton) backButton.onclick = () => window.location.hash = "";
 
-        // 5. Initial Data Fetch
         await fetchRecipeSummaries();
         handleRouting();
     });
 
     window.addEventListener("hashchange", handleRouting);
-    servingsInput.addEventListener("input", renderIngredients);
+    if (servingsInput) servingsInput.addEventListener("input", renderIngredients);
 })();
