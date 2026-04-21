@@ -684,6 +684,19 @@
             ]
         },
         {
+            "path": "unsort/spicy_tofu_chicken_noodles.json",
+            "filename": "spicy_tofu_chicken_noodles",
+            "name": "辣味豆腐雞肉烏龍麵",
+            "description": "這是一款低脂、高蛋白質（每份 52g）的健身友善料理。利用嫩豆腐、芝麻醬與味噌調製出綿密濃郁的醬汁，搭配鮮嫩雞肉末與Q彈烏龍麵，清爽且具飽足感。",
+            "tags": [
+                "健身料理",
+                "高蛋白",
+                "低卡",
+                "烏龍麵",
+                "豆腐醬汁"
+            ]
+        },
+        {
             "path": "unsort/soy_glazed_pork_belly_udon.json",
             "filename": "soy_glazed_pork_belly_udon",
             "name": "醬燒五花肉拌烏龍麵",
@@ -694,6 +707,19 @@
                 "日式料理",
                 "醬燒",
                 "快手菜"
+            ]
+        },
+        {
+            "path": "unsort/gyudon_beef_bowl.json",
+            "filename": "gyudon_beef_bowl",
+            "name": "牛丼飯",
+            "description": "經典的日式家常定食，利用洋蔥與日式基礎調味醬汁燉煮牛肉片，製作過程簡單快速，鹹甜滋味與白飯完美結合。",
+            "tags": [
+                "日式料理",
+                "牛丼",
+                "家常菜",
+                "快速料理",
+                "定食"
             ]
         },
         {
@@ -751,6 +777,7 @@
         "咖哩",
         "墨西哥料理",
         "墨西哥風味",
+        "定食",
         "宮保",
         "家常料理",
         "家常菜",
@@ -790,6 +817,7 @@
         "燉煮",
         "燉飯",
         "燒烤醬",
+        "牛丼",
         "牛肉",
         "牛肋條",
         "甜辣",
@@ -806,6 +834,7 @@
         "薄餅",
         "西式",
         "豆腐",
+        "豆腐醬汁",
         "豬肉",
         "起司",
         "辣味",
@@ -827,6 +856,6 @@
         "黑胡椒",
         "點心"
     ],
-    "totalRecipes": 63,
+    "totalRecipes": 65,
     "lastUpdated": null
 }
