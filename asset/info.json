@@ -838,6 +838,19 @@
             ]
         },
         {
+            "path": "unsort/high_protein_garlic_naan.json",
+            "filename": "high_protein_garlic_naan",
+            "name": "高蛋白蒜味起司烤餅",
+            "description": "這是一款兼具高蛋白質與低熱量的蒜味起司烤餅，每份含有約 21 克蛋白質，適合健身族群作為正餐或點心食用。",
+            "tags": [
+                "高蛋白",
+                "低熱量",
+                "健身食譜",
+                "減脂",
+                "烤餅"
+            ]
+        },
+        {
             "path": "unsort/hk_style_onion_pork_chop.json",
             "filename": "hk_style_onion_pork_chop",
             "name": "港式洋蔥煎豬排",
@@ -921,7 +934,9 @@
         "中式",
         "中東",
         "乾式麻婆",
+        "低熱量",
         "低碳",
+        "健身食譜",
         "免烤箱",
         "冷拌醬",
         "創意料理",
@@ -953,6 +968,7 @@
         "海鮮",
         "涼拌醬",
         "涼菜",
+        "減脂",
         "港式",
         "港式料理",
         "漢堡排",
@@ -961,6 +977,7 @@
         "炸物",
         "烤布蕾",
         "烤箱",
+        "烤餅",
         "焗烤",
         "無水料理",
         "煎肉醬",
@@ -1007,6 +1024,6 @@
         "黑胡椒",
         "點心"
     ],
-    "totalRecipes": 78,
+    "totalRecipes": 79,
     "lastUpdated": null
 }
