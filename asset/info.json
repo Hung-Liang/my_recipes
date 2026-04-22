@@ -827,6 +827,17 @@
             ]
         },
         {
+            "path": "unsort/gongjin_fried_eggs.json",
+            "filename": "gongjin_fried_eggs",
+            "name": "公瑾爆蛋",
+            "description": "這是一道色香味俱全的快手蛋料理，以酸甜鹹鮮的醬汁包裹煎蛋，非常下飯。",
+            "tags": [
+                "蛋料理",
+                "家常菜",
+                "熱炒"
+            ]
+        },
+        {
             "path": "unsort/hk_style_onion_pork_chop.json",
             "filename": "hk_style_onion_pork_chop",
             "name": "港式洋蔥煎豬排",
@@ -921,6 +932,7 @@
         "奶油乳酪",
         "奶油醬油",
         "宮保",
+        "家常菜",
         "川菜",
         "微波爐",
         "快速料理",
@@ -971,6 +983,7 @@
         "茶餐廳",
         "萬用醬汁",
         "蔬食",
+        "蛋料理",
         "蜂蜜芥末",
         "西式",
         "豆腐",
@@ -994,6 +1007,6 @@
         "黑胡椒",
         "點心"
     ],
-    "totalRecipes": 77,
+    "totalRecipes": 78,
     "lastUpdated": null
 }
