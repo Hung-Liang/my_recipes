@@ -176,8 +176,22 @@
 
             groups[cat].forEach(r => {
                 const card = document.createElement("div");
-                card.className = "bg-white rounded-2xl shadow-lg p-6 border border-gray-200 cursor-pointer";
-                card.innerHTML = `<h3 class="text-xl font-bold text-gray-900 mb-2">${r.name}</h3><p class="text-gray-600 line-clamp-2 text-sm">${r.description}</p>`;
+                card.className = "bg-white rounded-2xl shadow-lg p-6 border border-gray-200 cursor-pointer flex flex-col h-full";
+                
+                // Create tags HTML
+                const tagsHtml = r.tags ? r.tags.map(tag => 
+                    `<span class="px-2 py-0.5 bg-gray-100 text-gray-600 text-xs rounded-full border border-gray-200">${tag}</span>`
+                ).join('') : '';
+
+                card.innerHTML = `
+                    <div class="flex-grow">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">${r.name}</h3>
+                        <p class="text-gray-600 line-clamp-2 text-sm mb-4">${r.description}</p>
+                    </div>
+                    <div class="flex flex-wrap gap-1 mt-auto">
+                        ${tagsHtml}
+                    </div>
+                `;
                 card.onclick = () => window.location.hash = `recipe/${r.path}`;
                 recipeListContainer.appendChild(card);
             });
@@ -195,6 +209,15 @@
         window.scrollTo(0, 0);
 
         recipeDetailName.textContent = recipe.name;
+        
+        // Render Tags in Detail View
+        const detailTagsContainer = document.getElementById("recipe-detail-tags");
+        if (detailTagsContainer) {
+            detailTagsContainer.innerHTML = recipe.tags ? recipe.tags.map(tag => 
+                `<span class="px-3 py-1 bg-blue-50 text-blue-700 text-sm rounded-full border border-blue-200">${tag}</span>`
+            ).join('') : '';
+        }
+
         recipeDetailDescription.textContent = recipe.description;
         if (recipe.servings && servingsInput) {
             servingsInput.value = recipe.servings.quantity;
