@@ -63,6 +63,17 @@
             ]
         },
         {
+            "path": "meat/korean_spicy_stir_fry_pork.json",
+            "filename": "korean_spicy_stir_fry_pork",
+            "name": "韓式辣炒豬肉",
+            "description": "韓國經典的家常靈魂美食，以豬前腿肉搭配韓式辣醬與辣椒粉醃製而成。甜辣適中的風味非常下飯，建議一次醃製大量，分批取出烹炒既方便又入味。",
+            "tags": [
+                "韓式",
+                "豬肉",
+                "懶人料理"
+            ]
+        },
+        {
             "path": "meat/lazy_beef_wontons.json",
             "filename": "lazy_beef_wontons",
             "name": "懶人牛肉餛飩",
@@ -549,6 +560,17 @@
             ]
         },
         {
+            "path": "snacks_desserts/cucumber_lime_juice.json",
+            "filename": "cucumber_lime_juice",
+            "name": "檸檬小黃瓜汁",
+            "description": "這是一款清爽消暑的夏日飲品，結合了小黃瓜的清香與青檸的酸甜風味，加入薄荷葉更增添層次感。",
+            "tags": [
+                "飲品",
+                "蔬食",
+                "懶人料理"
+            ]
+        },
+        {
             "path": "snacks_desserts/egg_milk_pudding.json",
             "filename": "egg_milk_pudding",
             "name": "免烤箱雞蛋牛奶布丁",
@@ -751,6 +773,19 @@
             ]
         },
         {
+            "path": "staples/korean_army_stew.json",
+            "filename": "korean_army_stew",
+            "name": "韓式部隊鍋",
+            "description": "這是一款利用台灣超市常見食材就能輕鬆完成的經典韓式料理。香辣的湯底配上豐富的加工肉品與起司拉麵，越煮越入味，是道深受大眾喜愛的家庭料理。",
+            "tags": [
+                "韓式",
+                "豬肉",
+                "澱粉",
+                "主食",
+                "懶人料理"
+            ]
+        },
+        {
             "path": "staples/long_beans_braised_noodle.json",
             "filename": "long_beans_braised_noodle",
             "name": "四季豆悶麵",
@@ -945,6 +980,6 @@
         "高蛋白",
         "點心"
     ],
-    "totalRecipes": 81,
+    "totalRecipes": 84,
     "lastUpdated": null
 }
