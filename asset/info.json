@@ -63,6 +63,27 @@
             ]
         },
         {
+            "path": "meat/korean_mayak_eggs.json",
+            "filename": "korean_mayak_eggs",
+            "name": "韓式麻藥雞蛋",
+            "description": "這是一款非常受歡迎的韓式醃製半熟蛋，口感軟嫩、蛋黃呈現流心狀，搭配鹹甜適中的醬汁，是極佳的下飯小菜。",
+            "tags": [
+                "韓式",
+                "懶人料理"
+            ]
+        },
+        {
+            "path": "meat/korean_soft_tofu_stew.json",
+            "filename": "korean_soft_tofu_stew",
+            "name": "韓式嫩豆腐鍋",
+            "description": "這是一款包含自製韓式辣醬（Dadaegi）的道地嫩豆腐鍋食譜。透過細辣椒粉與黑麻油混合而成的濃厚醬底，搭配滑嫩豆腐與豐富配料，在家也能做出鮮香辣度十足的韓式料理。",
+            "tags": [
+                "韓式",
+                "豆腐",
+                "主食"
+            ]
+        },
+        {
             "path": "meat/korean_spicy_stir_fry_pork.json",
             "filename": "korean_spicy_stir_fry_pork",
             "name": "韓式辣炒豬肉",
@@ -101,6 +122,17 @@
             ]
         },
         {
+            "path": "meat/pork_belly_chive_egg.json",
+            "filename": "pork_belly_chive_egg",
+            "name": "日式豬五花韭菜滑蛋",
+            "description": "這是一道僅需三種主要食材就能完成的日式家常料理。豬五花的油脂香氣與韭菜的鮮甜完美融合，最後淋上滑嫩蛋液，口感療癒且非常下飯。",
+            "tags": [
+                "日式",
+                "豬肉",
+                "懶人料理"
+            ]
+        },
+        {
             "path": "meat/potato_beef_hamburger_steak.json",
             "filename": "potato_beef_hamburger_steak",
             "name": "馬鈴薯牛絞肉漢堡排",
@@ -135,6 +167,16 @@
                 "煙燻",
                 "西式",
                 "豬肉"
+            ]
+        },
+        {
+            "path": "meat/stewed_beef_ribs.json",
+            "filename": "stewed_beef_ribs",
+            "name": "經典清燉牛肋條",
+            "description": "這是一道採用冷水下鍋去腥法的清燉料理。透過兩小時的慢火細燉，讓牛肋條達到軟嫩入味的極致口感，湯頭則充滿洋蔥與辛香料的鮮甜與香氣。",
+            "tags": [
+                "中式",
+                "牛肉"
             ]
         },
         {
@@ -227,6 +269,17 @@
                 "澱粉",
                 "醬汁",
                 "雞肉"
+            ]
+        },
+        {
+            "path": "poultry/ketchup_braised_chicken_thighs.json",
+            "filename": "ketchup_braised_chicken_thighs",
+            "name": "香煎茄汁嫩雞腿",
+            "description": "這是一款結合了日式風味與家庭料理感的雞腿料理。特別採用先煎後燉的做法，讓雞皮帶有酥脆感與焦香，再搭配酸甜適中的茄汁醬料，非常適合當作便當菜或下飯主餐。",
+            "tags": [
+                "日式",
+                "雞肉",
+                "懶人料理"
             ]
         },
         {
@@ -454,6 +507,16 @@
             ]
         },
         {
+            "path": "sauces_basics/teppanyaki_sauce.json",
+            "filename": "teppanyaki_sauce",
+            "name": "自製萬用鐵板燒醬汁",
+            "description": "這是一款鹹甜適中且帶有微酸層次的琥珀色萬用醬汁。透過精確的比例勾芡，使其具備極佳的掛漿效果，非常適合用於鐵板肉片、海鮮快炒或居家料理調味。",
+            "tags": [
+                "日式",
+                "醬汁"
+            ]
+        },
+        {
             "path": "sauces_basics/teriyaki_sauce.json",
             "filename": "teriyaki_sauce",
             "name": "照燒汁",
@@ -604,6 +667,18 @@
             ]
         },
         {
+            "path": "snacks_desserts/high_protein_cinnamon_carrot_cake.json",
+            "filename": "high_protein_cinnamon_carrot_cake",
+            "name": "高蛋白肉桂紅蘿蔔蛋糕",
+            "description": "這款健身友善的紅蘿蔔蛋糕採用燕麥粉與希臘優格作為基底，不含傳統麵粉與油脂，並添加大量乳清蛋白。口感濕潤紮實，搭配高蛋白優格抹醬，是完美的運動後甜點或低卡點心。",
+            "tags": [
+                "西式",
+                "甜點",
+                "高蛋白",
+                "烤箱"
+            ]
+        },
+        {
             "path": "snacks_desserts/homemade_chia_pudding.json",
             "filename": "homemade_chia_pudding",
             "name": "自製奇亞籽布丁",
@@ -686,6 +761,18 @@
             ]
         },
         {
+            "path": "staples/classic_veg_lasagna.json",
+            "filename": "classic_veg_lasagna",
+            "name": "經典蔬食千層麵",
+            "description": "這是一道層次豐富的義式蔬食料理，結合了多種鮮甜蔬菜、濃郁的乳香白醬與鹹香起司，風味純粹且飽足感十足。",
+            "tags": [
+                "西式",
+                "蔬食",
+                "主食",
+                "烤箱"
+            ]
+        },
+        {
             "path": "staples/creamy_egg_minced_pork_tofu_donburi.json",
             "filename": "creamy_egg_minced_pork_tofu_donburi",
             "name": "滑蛋肉末豆腐蓋飯",
@@ -697,6 +784,18 @@
                 "澱粉",
                 "豆腐",
                 "豬肉"
+            ]
+        },
+        {
+            "path": "staples/creamy_gochujang_beef_udon.json",
+            "filename": "creamy_gochujang_beef_udon",
+            "name": "奶油韓式辣醬牛肉烏龍麵",
+            "description": "這是一款兼具高蛋白與低脂特性的韓式風味烏龍麵。利用嫩豆腐打造出如奶油般濃郁的醬汁，搭配極瘦牛絞肉，提供豐富飽足感卻不油膩。",
+            "tags": [
+                "韓式",
+                "牛肉",
+                "主食",
+                "高蛋白"
             ]
         },
         {
@@ -733,6 +832,18 @@
                 "主食",
                 "澱粉",
                 "西式"
+            ]
+        },
+        {
+            "path": "staples/creamy_white_sauce_lasagna.json",
+            "filename": "creamy_white_sauce_lasagna",
+            "name": "奶油白醬蔬菜千層麵",
+            "description": "這是一道乳香濃郁的義式經典料理。利用手工製作的法式白醬（Béchamel）結合鮮美蘑菇與爽脆青花菜，搭配多層次的起司烘烤，呈現出滑順綿密的極致口感。",
+            "tags": [
+                "西式",
+                "蔬食",
+                "主食",
+                "烤箱"
             ]
         },
         {
@@ -826,6 +937,29 @@
             ]
         },
         {
+            "path": "staples/miso_ramen.json",
+            "filename": "miso_ramen",
+            "name": "日式味噌拉麵",
+            "description": "這是一款充滿濃郁層次的味噌拉麵，特色在於將味噌融入雞高湯中，搭配炒香的豬絞肉與清甜玉米，最後加入奶油增添滑順的乳香，是寒冷天氣中的溫暖首選。",
+            "tags": [
+                "日式",
+                "豬肉",
+                "主食"
+            ]
+        },
+        {
+            "path": "staples/nira_beef_mixed_rice.json",
+            "filename": "nira_beef_mixed_rice",
+            "name": "日式奶油味噌韭菜拌飯",
+            "description": "這是一款結合了韭菜香氣、牛絞肉鮮甜以及味噌與奶油黃金組合的快速拌飯料理，口感濃郁且非常下飯。",
+            "tags": [
+                "日式",
+                "牛肉",
+                "主食",
+                "懶人料理"
+            ]
+        },
+        {
             "path": "staples/one_minute_egg_rice.json",
             "filename": "one_minute_egg_rice",
             "name": "雞蛋撈飯",
@@ -835,6 +969,18 @@
                 "懶人料理",
                 "日式",
                 "澱粉"
+            ]
+        },
+        {
+            "path": "staples/pink_sauce_veg_lasagna.json",
+            "filename": "pink_sauce_veg_lasagna",
+            "name": "經典粉紅醬蔬菜千層麵",
+            "description": "這道千層麵採用風靡義大利的「粉紅醬（Pink Sauce）」，將番茄糊的微酸與鮮奶油的香醇完美結合。搭配彩椒、蘑菇等鮮蔬，層層疊起濃郁乳酪，口感滑順且層次分明。",
+            "tags": [
+                "西式",
+                "蔬食",
+                "主食",
+                "烤箱"
             ]
         },
         {
@@ -849,6 +995,17 @@
                 "澱粉",
                 "牛肉",
                 "豬肉"
+            ]
+        },
+        {
+            "path": "staples/shoyu_ramen.json",
+            "filename": "shoyu_ramen",
+            "name": "日式醬油拉麵",
+            "description": "這是一款以雞骨熬製的清爽高湯為基底，結合甘醇醬油風味的經典日式拉麵。口感清淡不膩，是拉麵文化中最具代表性的口味之一。",
+            "tags": [
+                "日式",
+                "雞肉",
+                "主食"
             ]
         },
         {
@@ -953,6 +1110,84 @@
             ]
         },
         {
+            "path": "staples/tonkotsu_ramen.json",
+            "filename": "tonkotsu_ramen",
+            "name": "博多豚骨拉麵",
+            "description": "這是一款經典的日式豚骨拉麵食譜，特色在於使用大量豬大骨熬製出濃郁鮮甜的乳白色湯頭，搭配軟嫩的叉燒肉與流心溏心蛋。",
+            "tags": [
+                "日式",
+                "豬肉",
+                "主食"
+            ]
+        },
+        {
+            "path": "staples/truffle_lemon_chicken_mac_cheese.json",
+            "filename": "truffle_lemon_chicken_mac_cheese",
+            "name": "檸檬雞肉高蛋白黑松露通心粉",
+            "description": "這是一款兼具高蛋白與低脂特點的創意料理。利用低脂茅屋起司與希臘優格取代傳統的高熱量奶油白醬，打造出濃郁滑順的口感，並結合黑松露油的優雅香氣與清爽的檸檬雞丁，非常適合作為健身餐預備（Meal Prep）。",
+            "tags": [
+                "西式",
+                "雞肉",
+                "主食",
+                "高蛋白"
+            ]
+        },
+        {
+            "path": "unsort/classic_veg_lasagna.json",
+            "filename": "classic_veg_lasagna",
+            "name": "經典蔬食千層麵",
+            "description": "這是一道層次豐富的義式蔬食料理，結合了多種鮮甜蔬菜、濃郁的乳香白醬與鹹香起司，風味純粹且飽足感十足。",
+            "tags": [
+                "義式料理",
+                "蔬食",
+                "千層麵",
+                "焗烤",
+                "起司"
+            ]
+        },
+        {
+            "path": "unsort/creamy_gochujang_beef_udon.json",
+            "filename": "creamy_gochujang_beef_udon",
+            "name": "奶油韓式辣醬牛肉烏龍麵",
+            "description": "這是一款兼具高蛋白與低脂特性的韓式風味烏龍麵。利用嫩豆腐打造出如奶油般濃郁的醬汁，搭配極瘦牛絞肉，提供豐富飽足感卻不油膩。",
+            "tags": [
+                "韓式料理",
+                "烏龍麵",
+                "高蛋白",
+                "健身食譜",
+                "牛絞肉",
+                "嫩豆腐"
+            ]
+        },
+        {
+            "path": "unsort/creamy_white_sauce_lasagna.json",
+            "filename": "creamy_white_sauce_lasagna",
+            "name": "奶油白醬蔬菜千層麵",
+            "description": "這是一道乳香濃郁的義式經典料理。利用手工製作的法式白醬（Béchamel）結合鮮美蘑菇與爽脆青花菜，搭配多層次的起司烘烤，呈現出滑順綿密的極致口感。",
+            "tags": [
+                "義式料理",
+                "白醬",
+                "千層麵",
+                "焗烤",
+                "蘑菇",
+                "青花菜"
+            ]
+        },
+        {
+            "path": "unsort/high_protein_cinnamon_carrot_cake.json",
+            "filename": "high_protein_cinnamon_carrot_cake",
+            "name": "高蛋白肉桂紅蘿蔔蛋糕",
+            "description": "這款健身友善的紅蘿蔔蛋糕採用燕麥粉與希臘優格作為基底，不含傳統麵粉與油脂，並添加大量乳清蛋白。口感濕潤紮實，搭配高蛋白優格抹醬，是完美的運動後甜點或低卡點心。",
+            "tags": [
+                "甜點",
+                "高蛋白",
+                "健身食譜",
+                "低脂",
+                "紅蘿蔔蛋糕",
+                "無粉甜點"
+            ]
+        },
+        {
             "path": "unsort/ketchup_braised_chicken_thighs.json",
             "filename": "ketchup_braised_chicken_thighs",
             "name": "香煎茄汁嫩雞腿",
@@ -1005,6 +1240,47 @@
             ]
         },
         {
+            "path": "unsort/nira_beef_mixed_rice.json",
+            "filename": "nira_beef_mixed_rice",
+            "name": "日式奶油味噌韭菜拌飯",
+            "description": "這是一款結合了韭菜香氣、牛絞肉鮮甜以及味噌與奶油黃金組合的快速拌飯料理，口感濃郁且非常下飯。",
+            "tags": [
+                "日式料理",
+                "拌飯",
+                "牛絞肉",
+                "韭菜",
+                "快速料理"
+            ]
+        },
+        {
+            "path": "unsort/pink_sauce_veg_lasagna.json",
+            "filename": "pink_sauce_veg_lasagna",
+            "name": "經典粉紅醬蔬菜千層麵",
+            "description": "這道千層麵採用風靡義大利的「粉紅醬（Pink Sauce）」，將番茄糊的微酸與鮮奶油的香醇完美結合。搭配彩椒、蘑菇等鮮蔬，層層疊起濃郁乳酪，口感滑順且層次分明。",
+            "tags": [
+                "義式料理",
+                "粉紅醬",
+                "千層麵",
+                "蔬食",
+                "焗烤",
+                "西式料理"
+            ]
+        },
+        {
+            "path": "unsort/pork_belly_chive_egg.json",
+            "filename": "pork_belly_chive_egg",
+            "name": "日式豬五花韭菜滑蛋",
+            "description": "這是一道僅需三種主要食材就能完成的日式家常料理。豬五花的油脂香氣與韭菜的鮮甜完美融合，最後淋上滑嫩蛋液，口感療癒且非常下飯。",
+            "tags": [
+                "日式料理",
+                "家常菜",
+                "豬肉",
+                "滑蛋",
+                "韭菜",
+                "快速料理"
+            ]
+        },
+        {
             "path": "unsort/shoyu_ramen.json",
             "filename": "shoyu_ramen",
             "name": "日式醬油拉麵",
@@ -1015,6 +1291,19 @@
                 "醬油湯頭",
                 "雞骨高湯",
                 "清爽"
+            ]
+        },
+        {
+            "path": "unsort/stewed_beef_ribs.json",
+            "filename": "stewed_beef_ribs",
+            "name": "經典清燉牛肋條",
+            "description": "這是一道採用冷水下鍋去腥法的清燉料理。透過兩小時的慢火細燉，讓牛肋條達到軟嫩入味的極致口感，湯頭則充滿洋蔥與辛香料的鮮甜與香氣。",
+            "tags": [
+                "中式料理",
+                "牛肉",
+                "清燉",
+                "慢磨燉煮",
+                "家常菜"
             ]
         },
         {
@@ -1042,47 +1331,84 @@
                 "叉燒",
                 "溏心蛋"
             ]
+        },
+        {
+            "path": "unsort/truffle_lemon_chicken_mac_cheese.json",
+            "filename": "truffle_lemon_chicken_mac_cheese",
+            "name": "檸檬雞肉高蛋白黑松露通心粉",
+            "description": "這是一款兼具高蛋白與低脂特點的創意料理。利用低脂茅屋起司與希臘優格取代傳統的高熱量奶油白醬，打造出濃郁滑順的口感，並結合黑松露油的優雅香氣與清爽的檸檬雞丁，非常適合作為健身餐預備（Meal Prep）。",
+            "tags": [
+                "高蛋白",
+                "健身料理",
+                "義大利麵",
+                "黑松露",
+                "雞胸肉",
+                "低脂"
+            ]
         }
     ],
     "allTags": [
         "下飯菜",
         "中式",
+        "中式料理",
         "主食",
         "低碳",
+        "低脂",
+        "健身料理",
+        "健身食譜",
         "先煎後燉",
         "冷盤",
         "北海道風味",
+        "千層麵",
         "叉燒",
         "味噌湯頭",
         "奶油玉米",
         "嫩豆腐",
+        "家常菜",
         "常備菜",
         "快炒調味",
+        "快速料理",
+        "慢磨燉煮",
         "懶人料理",
         "拉麵",
+        "拌飯",
         "日式",
         "日式家常",
         "日式料理",
         "氣炸鍋",
         "海鮮",
+        "清燉",
         "清爽",
         "港式",
         "溏心蛋",
+        "滑蛋",
         "澱粉",
+        "烏龍麵",
         "烤箱",
+        "焗烤",
+        "無粉甜點",
         "煙燻",
+        "牛絞肉",
         "牛肉",
         "甜點",
+        "白醬",
+        "粉紅醬",
         "紅燒",
+        "紅蘿蔔蛋糕",
+        "義大利麵",
+        "義式料理",
         "自製辣醬",
         "自製醬汁",
         "茄汁",
         "萬用醬料",
         "蔬食",
+        "蘑菇",
         "西式",
+        "西式料理",
         "豆腐",
         "豚骨湯頭",
         "豬肉",
+        "起司",
         "辣味料理",
         "醬汁",
         "醬油湯頭",
@@ -1090,15 +1416,19 @@
         "鐵板燒",
         "雞肉",
         "雞肉料理",
+        "雞胸肉",
         "雞蛋料理",
         "雞骨高湯",
         "電鍋",
+        "青花菜",
         "韓式",
         "韓式料理",
+        "韭菜",
         "飲品",
         "高蛋白",
+        "黑松露",
         "點心"
     ],
-    "totalRecipes": 91,
+    "totalRecipes": 116,
     "lastUpdated": null
 }
