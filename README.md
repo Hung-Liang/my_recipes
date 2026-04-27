@@ -42,7 +42,7 @@
 - **PWA**: Service Worker (`sw.js`) + Manifest (`manifest.json`)
 
 ## 🤝 貢獻
-目前共有 55+ 份食譜並持續增加中。歡迎透過 Pull Request 貢獻您的私藏食譜！
+收錄各式精選食譜並持續增加中。歡迎透過 Pull Request 貢獻您的私藏食譜！
 
 ## ✨ 作者
 This project was developed by [Hung Liang](https://github.com/Hung-Liang)
