@@ -21,6 +21,17 @@
             ]
         },
         {
+            "path": "meat/crispy_pan_fried_pork_chops.json",
+            "filename": "crispy_pan_fried_pork_chops",
+            "name": "酥煎里肌豬排",
+            "description": "這是一道簡單美味的家常菜，將里肌肉拍打斷筋後，以蒜頭、醬油和蛋液醃製入味，裹上酥炸粉返潮後煎至金黃酥脆。",
+            "tags": [
+                "豬肉",
+                "中式",
+                "懶人料理"
+            ]
+        },
+        {
             "path": "meat/gongjin_fried_eggs.json",
             "filename": "gongjin_fried_eggs",
             "name": "公瑾爆蛋",
@@ -723,6 +734,18 @@
             ]
         },
         {
+            "path": "snacks_desserts/sweet_and_spicy_oven_beef_jerky.json",
+            "filename": "sweet_and_spicy_oven_beef_jerky",
+            "name": "甜辣烤箱牛肉乾",
+            "description": "這款甜辣烤箱牛肉乾結合了是拉差辣椒醬的辛辣與蜂蜜的香甜，利用一般家用烤箱即可輕鬆製作，是適合日常解饞的高蛋白零食。",
+            "tags": [
+                "牛肉",
+                "高蛋白",
+                "點心",
+                "烤箱"
+            ]
+        },
+        {
             "path": "snacks_desserts/wang_zai_mochi.json",
             "filename": "wang_zai_mochi",
             "name": "旺仔麻糬",
@@ -745,6 +768,19 @@
                 "氣炸鍋",
                 "澱粉",
                 "豬肉"
+            ]
+        },
+        {
+            "path": "staples/big_mac_wonton_taco.json",
+            "filename": "big_mac_wonton_taco",
+            "name": "大麥克餛飩塔可",
+            "description": "這款大麥克餛飩塔可將經典漢堡風味與酥脆的餛飩皮結合，是一道高蛋白、低熱量的創意料理。整份含有約 559 大卡與 50 克蛋白質。",
+            "tags": [
+                "牛肉",
+                "高蛋白",
+                "低碳",
+                "懶人料理",
+                "澱粉"
             ]
         },
         {
@@ -1160,6 +1196,6 @@
         "高蛋白",
         "點心"
     ],
-    "totalRecipes": 100,
+    "totalRecipes": 103,
     "lastUpdated": null
 }
