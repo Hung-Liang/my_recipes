@@ -12,6 +12,17 @@
             ]
         },
         {
+            "path": "meat/braised_pork_rice.json",
+            "filename": "braised_pork_rice",
+            "name": "最強古早味滷肉飯",
+            "description": "這是一道色澤琥珀油亮、富有膠質的古早味滷肉飯。透過煸香五花肉與油蔥酥的結合，製作出極其下飯的白飯殺手。",
+            "tags": [
+                "豬肉",
+                "中式",
+                "懶人料理"
+            ]
+        },
+        {
             "path": "meat/butter_new_potatoes_dry_mapo.json",
             "filename": "butter_new_potatoes_dry_mapo",
             "name": "奶油新馬鈴薯與乾式麻婆",
@@ -59,6 +70,18 @@
             "tags": [
                 "澱粉",
                 "豬肉"
+            ]
+        },
+        {
+            "path": "meat/japanese_shabu_shabu_pork.json",
+            "filename": "japanese_shabu_shabu_pork",
+            "name": "日式蔥香涼拌涮豬肉",
+            "description": "這是一道能在 10 分鐘內快速完成的涼拌料理，利用涮豬肉片搭配濃郁的蔥香與微辣醬汁，清爽又開胃。",
+            "tags": [
+                "豬肉",
+                "日式",
+                "高蛋白",
+                "懶人料理"
             ]
         },
         {
@@ -167,6 +190,28 @@
                 "懶人料理",
                 "豬肉",
                 "電鍋"
+            ]
+        },
+        {
+            "path": "meat/rice_cooker_char_siu.json",
+            "filename": "rice_cooker_char_siu",
+            "name": "電鍋版蜜汁叉燒",
+            "description": "這是一道利用電鍋製作的簡易叉燒食譜，免去傳統烤箱轉火候的麻煩。透過電鍋的保溫與加熱功能，能讓五花肉充分吸收蜜汁醬料，呈現軟嫩多汁的口感。",
+            "tags": [
+                "豬肉",
+                "港式",
+                "電鍋"
+            ]
+        },
+        {
+            "path": "meat/roasted_prime_rib_compound_butter.json",
+            "filename": "roasted_prime_rib_compound_butter",
+            "name": "爐烤頂級肋眼牛排配香料奶油",
+            "description": "這是一道充滿儀式感的頂級肋眼牛排料理。透過低溫慢烤（Low and Slow）保持肉質粉嫩多汁，最後再以極高溫烤出琥珀色酥脆的香料奶油外皮，呈現極致的風味。",
+            "tags": [
+                "牛肉",
+                "西式",
+                "烤箱"
             ]
         },
         {
@@ -734,6 +779,28 @@
             ]
         },
         {
+            "path": "snacks_desserts/raw_carrot_lemon_salad.json",
+            "filename": "raw_carrot_lemon_salad",
+            "name": "檸檬芝麻涼拌紅蘿蔔絲",
+            "description": "這是一道充滿維生素 A 與 β-胡蘿蔔素的清爽開胃菜，被譽為「食補肉毒」。利用紅蘿蔔的爽脆口感，搭配檸檬與紅酒醋的酸香，不僅能幫助肌膚呈現健康光澤，更是炎熱天氣中解膩的絕佳選擇。",
+            "tags": [
+                "蔬食",
+                "懶人料理",
+                "點心"
+            ]
+        },
+        {
+            "path": "snacks_desserts/salt_and_pepper_chips.json",
+            "filename": "salt_and_pepper_chips",
+            "name": "椒鹽薯條",
+            "description": "這是一道結合中式熱炒風味與西式薯條的創意料理。利用高溫油炸出酥脆的薯條，再與洋蔥、生辣椒及辛香料快速爆炒，香辣鹹香，是極佳的開胃菜或點心。",
+            "tags": [
+                "澱粉",
+                "點心",
+                "懶人料理"
+            ]
+        },
+        {
             "path": "snacks_desserts/sweet_and_spicy_oven_beef_jerky.json",
             "filename": "sweet_and_spicy_oven_beef_jerky",
             "name": "甜辣烤箱牛肉乾",
@@ -933,6 +1000,17 @@
             ]
         },
         {
+            "path": "staples/korean_cheese_rice.json",
+            "filename": "korean_cheese_rice",
+            "name": "韓式起司拌飯",
+            "description": "這是一道只需一個石鍋即可完成的韓式療癒美食。焦香的鍋巴搭配大量的牽絲起司與甜辣醬汁，口感豐富且飽足感十足。",
+            "tags": [
+                "韓式",
+                "澱粉",
+                "懶人料理"
+            ]
+        },
+        {
             "path": "staples/long_beans_braised_noodle.json",
             "filename": "long_beans_braised_noodle",
             "name": "四季豆悶麵",
@@ -1020,6 +1098,17 @@
             ]
         },
         {
+            "path": "staples/pork_soup_rice.json",
+            "filename": "pork_soup_rice",
+            "name": "韓式豬肉湯飯 (돼지국밥)",
+            "description": "這是一道運用簡化步驟重現釜山名產「豬肉湯飯」的食譜。透過韓式大醬去腥煮肉，並搭配特製的韓式調味醬汁（다대기），風味濃郁且製作快速。",
+            "tags": [
+                "韓式",
+                "豬肉",
+                "澱粉"
+            ]
+        },
+        {
             "path": "staples/quick_beef_stir_fried_udon.json",
             "filename": "quick_beef_stir_fried_udon",
             "name": "快速牛肉炒烏龍麵",
@@ -1031,6 +1120,18 @@
                 "澱粉",
                 "牛肉",
                 "豬肉"
+            ]
+        },
+        {
+            "path": "staples/rice_cooker_chicken_rice.json",
+            "filename": "rice_cooker_chicken_rice",
+            "name": "電鍋版高蛋白嫩雞炊飯",
+            "description": "這是一道營養均衡的一鍋出料理，利用電鍋同時完成主食、蔬菜與蛋白質。高蛋白且低脂肪，適合忙碌的上班族 or 健身族群。",
+            "tags": [
+                "雞肉",
+                "澱粉",
+                "電鍋",
+                "高蛋白"
             ]
         },
         {
@@ -1167,6 +1268,17 @@
                 "主食",
                 "高蛋白"
             ]
+        },
+        {
+            "path": "staples/zucchini_pappardelle_cream_sauce.json",
+            "filename": "zucchini_pappardelle_cream_sauce",
+            "name": "櫛瓜奶油寬帶麵",
+            "description": "這是一款以櫛瓜為主角的義式料理，將部分櫛瓜與熟成起司攪打成如青醬般濃郁的奶油狀醬汁，再搭配寬大厚實的義大利寬帶麵，口感清爽卻充滿層次。",
+            "tags": [
+                "西式",
+                "澱粉",
+                "蔬食"
+            ]
         }
     ],
     "allTags": [
@@ -1196,6 +1308,6 @@
         "高蛋白",
         "點心"
     ],
-    "totalRecipes": 103,
+    "totalRecipes": 113,
     "lastUpdated": null
 }
