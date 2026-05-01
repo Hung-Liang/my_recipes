@@ -813,6 +813,18 @@
             ]
         },
         {
+            "path": "snacks_desserts/sweet_potato_balls.json",
+            "filename": "sweet_potato_balls",
+            "name": "地瓜圓",
+            "description": "手工自製傳統台式甜點地瓜圓，口感Q彈，步驟簡單。",
+            "tags": [
+                "甜點",
+                "地瓜",
+                "台式",
+                "手作"
+            ]
+        },
+        {
             "path": "snacks_desserts/wang_zai_mochi.json",
             "filename": "wang_zai_mochi",
             "name": "旺仔麻糬",
@@ -1285,7 +1297,10 @@
         "中式",
         "主食",
         "低碳",
+        "台式",
+        "地瓜",
         "懶人料理",
+        "手作",
         "日式",
         "氣炸鍋",
         "海鮮",
@@ -1308,6 +1323,6 @@
         "高蛋白",
         "點心"
     ],
-    "totalRecipes": 113,
+    "totalRecipes": 114,
     "lastUpdated": null
 }
